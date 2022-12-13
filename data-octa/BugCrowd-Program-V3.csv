@@ -1,0 +1,2651 @@
+﻿Titel,Reward,Program_link,Short_Description,Is_Safe_harbor,User,Vulnearbilities_rewarded,Validation_within,Average_payout,P1_iOS_Android_API,P1_Web,P2_iOS_Android_API,P2_Web,P3_iOS_Android_API,P3_Web,P4_iOS_Android_API,P4_Web,Hall_of_famers,Num_Hacks,Scope_Target_Mobile_API,Scope_Target_Web_Targets,Cash_Out,Technology,Focus_areas
+Ibotta,"$50 - $5,000",https://bugcrowd.com/ibotta,Mobile app providing cash back for users through in-app purch…,True,,"
+68
+","
+3 days
+","
+$800
+","$5,000","$1,500","$2,250",$900,$750,$300,$250,$100, 470,1152 ,"P1
+$2251 – $5000
+P2
+$901 – $2250
+P3
+$301 – $750
+P4
+$101 – $250","P1
+$901 – $1500
+P2
+$751 – $900
+P3
+$251 – $300
+P4
+$50 – $100","
+Paypal, Venmo, and giftcard cashout methods are live.  Because of this, accounts will not be funded again.
+Cashout thresholds are reduced for the bugcrowd provisioned accounts to facilitate testing.
+SMS authentication is enabled for all accounts. Because of fraud scoring, VoIP numbers (Google Voice, etc) may be blocked.
+Critical requests are rate-limited and geoip filtered. Requests from outside the US are not likely to be allowed.
+","
+The mobile apps are both native
+Servers are Ruby/Rails on Ubuntu 
+Hosted on AWS, API endpoints behind Elastic LoadBalancer 
+Infrastructure includes Memcache, Redis and MySQL
+","
+Any ability for an attacker to sniff Grocery retailers credentials entered into Ibotta.
+All phone logs, especially exceptions, need to be verified to not include credentials.
+Check for plaintext customer sensitive information sent to 3rd party from our endpoints.
+Input validation for database access for protection against injection.
+Test the restriction of HTTP methods to those we are in control of, or any attack vector against our endpoints.
+2FA bypass and/or compromising account integrity.
+Cashout threshold and value manipulation.
+"
+Step Public Applications,"$200 - $10,000",https://bugcrowd.com/step-public,Step’s mission is to equip younger generations with the tools…,True,,"
+12
+","
+3 days
+","
+$1,000
+",,,,,,,,,View the hall,88 ,"P1
+$10000
+P2
+$5000
+P3
+$600
+P4
+$200",,,,
+Registrar.gov: Bug Bounty Program,"$100 - $3,500",https://bugcrowd.com/registrar-dotgov,"This is the .gov registrar, where .gov domains are managed. ",,,"
+1
+","
+5 days
+",,,,,,,,,,View the hall,22 ,"P1
+$3000 – $3500
+P2
+$1000 – $1250
+P3
+$200 – $250
+P4
+$100 – $150",,,,
+Verisign,"$100 - $10,000",https://bugcrowd.com/verisign,Verisign, Partial safe harbor,Solo-Only,"
+48
+","
+$500
+",,,,,,,,,, 50,155 ,"P1
+$5000 – $10000
+P2
+$1250 – $2500
+P3
+$250 – $500
+P4
+$100 – $150","P1
+$3000 – $3500
+P2
+$1000 – $1250
+P3
+$200 – $250
+P4
+$100 – $150","
+Denial of service attacks Username / email enumeration by brute forcing / error messages (e.g. login / signup/ forgotten password)
+
+
+Exceptional cases may still be in scope (e.g. ability to enumerate email addresses via incrementing anumeric parameter) 
+
+
+Spamming/social engineering/phishing attacks
+
+
+Includes email spoofing Email spoofing (including SPF, DKIM, From: spoofing, and visually similar, and related issues) 
+
+
+Open redirects (through headers and parameters)
+Lack of security speedbump when leaving the site 
+Internal IP address disclosure 
+Accessible Non-sensitive files and directories (e.g. README.TXT, CHANGES.TXT, robots.txt, gitignore, etc.) 
+Self XSS 
+Text injection 
+Fingerprinting/banner disclosure on common/public services 
+Clickjacking and issues only exploitable through clickjacking 
+Lack of Secure and HTTPOnly cookie flags (critical systems may still be in scope) 
+HTTPS mixed content scripts 
+Missing HTTP security headers.
+TLS/SSL Issues, including BEAST BREACH, insecure renegotiation, bad cipher suite, expired certificates.
+",,
+Indeed,"$50 - $10,000",https://bugcrowd.com/indeed,We help people get jobs.,True,,"
+1623
+","
+2 days
+","
+$912.71
+",,,,,,,,, 1487,3741 ,"P1
+$4000 – $10000
+P2
+$1000 – $4000
+P3
+$200 – $1000
+P4
+$50 – $200","P1
+$2000 – $4000
+P2
+$800 – $2000
+P3
+$200 – $800
+P4
+$50 – $200","
+
+An attack scenario: what is the most likely way an attacker actually abuses said vulnerability.
+
+Clear reproduction steps: if we can't easily reproduce what you are describing, we may not consider the issue as serious.
+
+Recommended fix: if you have any good ideas on ways to mitigate the risk without impacting normal users, your submission will have more value.
+","
+Logout Cross-Site Request Forgery (logout CSRF).
+Presence of application or web browser ‘autocomplete’ or ‘save password’
+",
+LifterLMS,,https://bugcrowd.com/lifterlms,Submit your bugs to LifterLMS,True,Solo-Only,"
+15
+","
+1 day
+",,,,,,,,,, 23,38 ,,,"
+When testing and researching LifterLMS plugins, setup a local environment in favor of performing tests against a production website.
+When interacting with our production websites, do so only on accounts you own.
+Absolutely no attacks or exploits against accounts not created by you.
+Cross-account access may only attempted between accounts controlled by you.
+Notify us as soon as early as possible when you have discovered a qualifying issue or vulnerability.
+Be patient. Give us a reasonable amount of time to correct the issue before disclosing it publicly.
+Comply with all applicable laws.
+","
+Do not create bots to automate form submissions or manually create a large number of spam or junk form submissions. Doing so unnecessarily creates excess cleanup work for our team.
+Do not violate the privacy of our users or customers.
+Do not destroy or modify data on production websites.
+Do not use or provide output from automated scanners. Please manually verify issues and include a valid proof of concept.
+
+",
+Telstra VDP,,https://bugcrowd.com/telstra-vdp,Submit your finding to Telstra's Vulnerability Disclosure Pro…, Partial safe harbor,Solo-Only,"
+9
+","
+3 days
+",,,,,,,,,, 13,46 ,,,,,
+ThousandEyes Bug Bounty,"$200 - $4,500",https://bugcrowd.com/thousandeyes-og,Network Intelligence Software,,Solo-Only,"
+41
+","
+5 days
+","
+$952.38
+",,,,,,,,, 44,138 ,"P1
+$4100 – $4500
+P2
+$1500 – $1750
+P3
+$600 – $850
+P4
+$200 – $250",,,,
+Professional Counselling Provider,"$500 - $20,000",https://bugcrowd.com/programs/teasers/dKZe19MnPivPJUoEgw3f5f4S,Help us care for our patients more securely by testing our Mo…,True,,,,,,,,,,,,,,,,,,,
+Leading Financial company needs your help!,"$300 - $10,000",https://bugcrowd.com/programs/teasers/red-moon-8769,We're looking for high quality researchers to help secure our…,,,,,,,,,,,,,,,,,,,,
+An electronics retailer would like your help!,"$50 - $2,500",https://bugcrowd.com/programs/teasers/eQTUitf7a1btxJGEXtAWMtYd,Help secure a private program that is looking to grow.,,,,,,,,,,,,,,,,,,,,
+Rarible,"Points - $5,000",https://bugcrowd.com/rarible-ogmbb,NFT is the future. Help us secure it!,True,,"
+28
+","
+2 days
+","
+$3,550
+",,,,,,,,, 56,553 ,,"$10000
+P1
+$3000 – $5000
+P2
+$500 – $2500
+P3
+$50 – $300
+P4
+$0 – $50",,,
+Blackbaud Vulnerability Disclosure Program,,https://bugcrowd.com/blackbaud-vdp,"We work as One, We bring heart, We invent possibilities, We e…",True,Solo-Only,"
+55
+","
+3 days
+",,,,,,,,,, 127,58 ,,,,,
+NiceHash,,https://bugcrowd.com/nicehash-og,Leading crypto platform for mining - rewards up to 10.000USD …,True,Solo-Only,"
+13
+","
+1 day
+",,,,,,,,,,View the hall,60 ,,,,,
+StackPath,,https://bugcrowd.com/stackpath,Protect your Edge,,,"
+89
+","
+2 days
+",,,,,,,,,, 248,825 ,,,,,
+HostGator VDP,,https://bugcrowd.com/hostgator-vdp,HostGator: Vulnerability Disclosure Program,True,Solo-Only,"
+3
+","
+1 day
+",,,,,,,,,, 19,41 ,,,,,
+Seagate VDP,,https://bugcrowd.com/seagate-vdp,"For 40 years, Seagate has enabled exponential data growth wit…",True,Solo-Only,"
+69
+","
+1 day
+",,,,,,,,,, 170,262 ,,,,,
+Dfinity Vulnerability Disclosure Program,,https://bugcrowd.com/dfinity-vdppro,"Dfinity is a not-for-profit organization based in Zurich, Swi…",,,"
+6
+","
+1 day
+",,,,,,,,,, 21,41 ,"P1
+$25000 – $50000
+P2
+$10000 – $25000
+P3
+$2000 – $10000
+P4
+$500 – $2000",,,,
+CyberGhost,"$75 - $1,250",https://bugcrowd.com/cyberghost,Make privacy your default setting!,True,Solo-Only,"
+18
+","
+2 days
+","
+$408.33
+",,,,,,,,, 17,168 ,"P1
+$1000 – $1250
+P2
+$500 – $650
+P3
+$150 – $300
+P4
+$75 – $100",,,,
+Private Internet Access,"$75 - $1,250",https://bugcrowd.com/privateinternetaccess,Complete Digital Privacy,True,Solo-Only,"
+14
+","
+2 days
+","
+$171.15
+",,,,,,,,, 12,131 ,"P1
+$1000 – $1250
+P2
+$500 – $650
+P3
+$150 – $300
+P4
+$75 – $100",,,,
+Lucid Motors Vulnerability Disclosure Program,,https://bugcrowd.com/lucidmotors-vdp,At Lucid we aim to create sustainable mobility without compro…,True,,"
+9
+","
+1 day
+",,,,,,,,,, 52,182 ,,,,,
+You Need a Budget (YNAB),"$150 - $3,000",https://bugcrowd.com/ynab,YNAB's Responsible Disclosure Program,True,,"
+135
+","
+4 days
+","
+$294.44
+",,,,,,,,, 360,910 ,"P1
+$3000
+P2
+$1350
+P3
+$800
+P4
+$150",,,,
+Lightspeed Retail (X-Series),"$20 - $6,250",https://bugcrowd.com/x-series,Lightspeed Retail (X-Series) is a public bug bounty program i…,True,Solo-Only,"
+14
+","
+5 days
+","
+$130
+",,,,,,,,, 17,118 ,"P1
+$4000 – $6250
+P2
+$1000 – $2000
+P3
+$300 – $500
+P4
+$20 – $150",,,,
+GoPro Awards Webapp Public Program,"$150 - $2,500",https://bugcrowd.com/gopro-og-public,Submit your findings to GoPro's bug bounty program! Please no…,True,Solo-Only,"
+2
+","
+1 day
+","
+$300
+",,,,,,,,, 12,91 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+"Tyler Technologies Data & Insights – Tyler Data Platform, powered by Socrata","$150 - $3,500",https://bugcrowd.com/tyler-tech-data-insights,Put your skills to the test!,,,"
+180
+","
+1 day
+","
+$450
+",,,,,,,,, 705,1427 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200","P1
+$3100 – $3500
+P2
+$1500 – $1800
+P3
+$600 – $750
+P4
+$150 – $250",,,
+Rec Room Video Games,"$150 - $2,500",https://bugcrowd.com/recroom-og,Help secure Rec Room!,,,"
+33
+","
+4 days
+","
+$640.62
+",,,,,,,,, 21,226 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+Redox,"$125 - $4,500",https://bugcrowd.com/redox,APIs and Platform for Healthcare Systems,True,,"
+76
+","
+3 days
+","
+$460
+",,,,,,,,, 793,1680 ,"$5000
+P1
+$3000 – $4500
+P2
+$1250 – $2000
+P3
+$500 – $1000
+P4
+$125 – $400","P1
+$2500 – $3000
+P2
+$1250 – $2000
+P3
+$500 – $1000
+P4
+$125 – $400","
+Failure to Invalidate Session > On Password Reset and/or Change  Please note, other authorization and session-based vulnerabilities can be valuable 
+HTML Injection is of limited value to the team, please focus on other XXS type findings 
+No Rate Limiting on 'Forgot Password' or 'Email-Triggering', if you can find other ways to leverage the password reset then you are welcome to submit your finding. 
+Lack of DMARC record 
+Email HTML Injection 
+","Testing is only authorized on the targets listed as In-Scope. _Any domain/property of Redox not listed in the targets section is out of scope. This includes any/all subdomains not listed above. IF you happen to identify a security vulnerability on a target that is not in-scope, but that demonstrably belongs to Redox, it may be reported to this program, and is appreciated - but will ultimately be marked as 'not applicable' and will not be eligible for monetary or points-based compensation.
+
+DDoS and DoS Vulnerabilities
+DDoS Vulnerabilities are out of scope of this program (ie. any attack requiring more than a small number of resources) DoS vulnerabilities which cause application ""slowdown"" will be considered P5/Informational, unless the researcher can demonstrate that the bug is severe enough to disable OTHER sessions and site functionality without a large number of resources. Bugs which cannot clearly show the impact on OTHER users without significant resources will be considered DDoS.
+
+Subdomain Takeovers
+Subdomain takeovers require proof of takeover. Please include a screenshot of the domain taken over temporarily. Subdomains explicitly listed in the target list below will be awarded as a P2, other domains will be awarded as a P3.
+
+Customer and Third Party Applications
+While customer and third-party applications built on Redox are technically out of scope, we will support the responsible disclosure of any issue and support forwarding these problems to the third party. For this reason we encourage you to submit these issues if you find them during your testing (such as key to our API a customer posts to GitHub) and we may offer discretionary rewards in these cases.
+
+AWS S3 Buckets not clearly linked to Redox. (This does not include buckets with ""redox"" in their name) any submissions must include how the bucket name is linked to Redox (from documentation, code or application links) or it will be rejected as out of scope.
+
+Example code or code in our documentation.
+
+Email HTML Injections
+
+DMARC record missing",
+Office of Natural Resources Revenue,,https://bugcrowd.com/onrr-vdp,Submit your findings to help secure ONRR. ,True,,"
+3
+","
+2 days
+",,,,,,,,,, 18,33 ,,,,,
+Office of Wildland Fire - Vulnerability Disclosure Program,,https://bugcrowd.com/owf-vdp,Please submit your findings to our program! ,True,Solo-Only,"
+9
+","
+2 days
+",,,,,,,,,, 17,29 ,,,,,
+Electroneum,"$200 - $12,000",https://bugcrowd.com/electroneum,Electroneum is a mobile-based payments solution is powered by…, Partial safe harbor,,"
+50
+","
+2 days
+","
+$200
+",,,,,,,,, 147,565 ,"P1
+$5000 – $12000
+P2
+$4000 – $6000
+P3
+$600 – $850
+P4
+$200 – $250",,,,
+Dropbox,"$100 - $10,000",https://bugcrowd.com/dropbox,"Your stuff, anywhere", Partial safe harbor,,"
+31
+","
+1 day
+","
+$456.25
+",,,,,,,,, 26,135 ,"P1
+$5000 – $10000
+P2
+$1000 – $5000
+P3
+$250 – $1000
+P4
+$100 – $250","P1
+$5000 – $10000
+P2
+$1000 – $5000
+P3
+$250 – $1000
+P4
+$100 – $250",,,
+Sophos,"$100 - $50,000",https://bugcrowd.com/sophos,Responsible disclosure with rewards up to US$50.000,True,,"
+1044
+","
+3 days
+","
+$807.14
+",,,,,,,,, 773,1938 ,"P1
+$50000","P1
+$3000 – $8000
+P2
+$1000 – $3000
+P3
+$300 – $1000
+P4
+$100 – $200",,,
+CoolBitX,"$150 - $10,000",https://bugcrowd.com/coolbitx-mbb,We create pioneering global security solutions for users and …,,Solo-Only,"
+8
+","
+2 days
+",,,,,,,,,,View the hall,18 ,"$10000
+P1
+$5000 – $10000
+P2
+$800 – $1000
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+Council of the Inspectors General on Integrity and Efficiency Vulnerability Disclosure Program,,https://bugcrowd.com/cigie-vdp,Submit your findings to help secure CIGIE!,True,,"
+1
+",,,,,,,,,,, 13,35 ,,,,,
+National Transportation Safety Board: Vulnerability Disclosure Program,,https://bugcrowd.com/ntsb-vdp,Submit your findings to the NTSB!,True,,"
+17
+","
+2 days
+",,,,,,,,,, 26,76 ,,,,,
+Federal Trade Commission: Vulnerability Disclosure Program,,https://bugcrowd.com/ftc-vdp,Report FTC Site Vulnerabilities! ,True,,"
+5
+","
+2 days
+",,,,,,,,,, 16,34 ,,,,,
+Chia Network,"$250 - $10,000",https://bugcrowd.com/chia-network-bb,Help Secure Chia Network,True,Solo-Only,"
+6
+","
+18 days
+","
+$7,000
+",,,,,,,,,View the hall,15 ,"$25000
+P1
+$5000 – $10000
+P2
+$2500 – $4000
+P3
+$1000 – $2000
+P4
+$250 – $500",,,,
+Netflix,"$200 - $20,000",https://bugcrowd.com/netflix,"Watch TV Shows Online, Watch Movies Online",,,"
+732
+","
+1 day
+","
+$902.38
+",,,,,,,,, 1080,4691 ,"P1
+$4000 – $20000
+P2
+$1500 – $4000
+P3
+$500 – $1500
+P4
+$200 – $500","P1
+$1500 – $4000
+P2
+$500 – $1500",,,
+Bitget,"$100 - $1,500",https://bugcrowd.com/bitget-og,Top Crypto Derivatives Exchange & World's Largest Crypto Copy…,True,Solo-Only,"
+23
+","
+13 days
+","
+$257.14
+",,,,,,,,,View the hall,37 ,"P1
+$1000 – $1500
+P2
+$500 – $1000
+P3
+$200 – $500
+P4
+$100 – $200",,,,
+"Constant Contact, Inc.",,https://bugcrowd.com/constantcontact,A leader in email marketing for small business, Partial safe harbor,,"
+647
+","
+14 days
+",,,,,,,,,, 491,750 ,,,,,
+Gearset: Managed Bug Bounty,"$200 - $6,000",https://bugcrowd.com/gearset-mbb,Industry-leading DevOps solutions for every Salesforce team,True,,"
+23
+","
+3 days
+","
+$1,512.50
+",,,,,,,,, 20,204 ,"P1
+$5000 – $6000
+P2
+$1500 – $4000
+P3
+$600 – $850
+P4
+$200 – $250","P1
+$5000 – $6000
+P2
+$1500 – $4000
+P3
+$600 – $850
+P4
+$200 – $250","
+Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy;
+Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls;
+Exempt from restrictions in our Terms & Conditions that would interfere with conducting security research, and we waive those restrictions on a limited basis for work done under this policy; and
+Lawful, helpful to the overall security of the Internet, and conducted in good faith.
+You are expected, as always, to comply with all applicable laws.
+",,
+NameJet,"Points - $2,500",https://bugcrowd.com/namejet,Submit your finding to the program!,True,Solo-Only,"
+6
+","
+2 days
+","
+$450
+",,,,,,,,,View the hall,107 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600",,,,
+Siteplus Vulnerability Disclosure Program ,,https://bugcrowd.com/newfold-siteplus-vdp,We're dedicated to providing the very best technology platfor…,True,Solo-Only,"
+3
+","
+1 day
+",,,,,,,,,, 22,47 ,,,,,
+HostGator Brazil VDP,,https://bugcrowd.com/hostgator-brazil-vdp,Submit your finding to the program!,,Solo-Only,"
+2
+","
+2 days
+",,,,,,,,,,View the hall,24 ,,,,,
+USAA,"$100 - $6,000",https://bugcrowd.com/usaa,We proudly serve millions of military members and their famil…, Partial safe harbor,,"
+93
+","
+about 20 hours
+","
+$1,143.75
+",,,,,,,,, 118,822 ,"P1
+$5000 – $6000
+P2
+$1800 – $2200
+P3
+$550 – $700
+P4
+$200","P1
+$1500 – $3000
+P2
+$900 – $1800
+P3
+$250 – $400
+P4
+$100",,,
+Octopus Deploy,"$200 - $6,000",https://bugcrowd.com/octopus-deploy,Submit your finding to the program!,True,,"
+20
+","
+3 days
+","
+$610
+",,,,,,,,,View the hall,43 ,"P1
+$6000
+P2
+$2000 – $3000
+P3
+$500 – $1000
+P4
+$200 – $300",,,,
+Wyze Bug Bounty,"$50 - $1,000",https://bugcrowd.com/wyzembb,Bug Bounty,,,"
+8
+","
+2 days
+","
+$200
+",,,,,,,,,View the hall,156 ,"P1
+$500 – $1000
+P2
+$250 – $350
+P3
+$100 – $200
+P4
+$50 – $75",,,,
+State Farm VDP,,https://bugcrowd.com/statefarm-esf,Large US Insurance Provider, Partial safe harbor,Solo-Only,"
+1
+","
+about 15 hours
+",,,,,,,,,, 22,21 ,,,,,
+Identity platform for secure authentication,"$150 - $10,000",https://bugcrowd.com/programs/teasers/dark-breeze-4589,"A global leader in Identity-as-a-Service (IDaaS), provides th…",,,,,,,,,,,,,,,,,,,,
+Blue Jeans Network,"Points - $2,000",https://bugcrowd.com/bluejeans,The Meetings Platform for the Modern Workplace. We bring vide…,,,"
+134
+","
+7 days
+","
+$100
+",,,,,,,,, 552,1159 ,"P1
+$1000 – $2000
+P2
+$250 – $500",,,,
+Atlassian-Built Apps,"$100 - $3,000",https://bugcrowd.com/atlassianapps,Marketplace apps officially developed and supported by Atlass…,,,"
+139
+","
+15 days
+","
+$257.14
+",,,,,,,,, 27,90 ,"P1
+$3000
+P2
+$1800
+P3
+$600
+P4
+$200","P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,
+Keeper Security Public Bounty Program,"$300 - $6,500",https://bugcrowd.com/keepersecurity,"Keeper is the leading password management, privilege access m…", Partial safe harbor,,"
+181
+","
+2 days
+","
+$1,083.33
+",,,,,,,,, 127,447 ,"$10000
+P1
+$6100 – $6500
+P2
+$2100 – $2500
+P3
+$850 – $1000
+P4
+$300 – $500",,,,
+OneTrust,"$300 - $6,500",https://bugcrowd.com/onetrust,OneTrust Privacy. Privacy Management Software. Operationalize…,,,"
+24
+","
+3 days
+",,,,,,,,,, 28,194 ,"P1
+$3001 – $6500
+P2
+$801 – $3000
+P3
+$501 – $800
+P4
+$300 – $500",,,,
+NameJet VDP,,https://bugcrowd.com/namejet-vdp,Submit your finding to the program!,True,Solo-Only,"
+2
+","
+about 13 hours
+",,,,,,,,,, 23,115 ,,,,,
+Web.com,"Points - $7,500",https://bugcrowd.com/webdotcom,You say it. We build it. It's as easy as Web.com! ,,,"
+546
+","
+6 days
+","
+$487.50
+",,,,,,,,, 110,498 ,"P1
+$5500 – $7500
+P2
+$3000 – $4000
+P3
+$600 – $900",,,,
+SnapNames VDP,,https://bugcrowd.com/snapnames-vdp,Submit your finding to the program!,True,Solo-Only,"
+6
+","
+1 day
+",,,,,,,,,, 21,96 ,,,,,
+Bluehost ,"Points - $4,500",https://bugcrowd.com/newfold-bluehost,Website Hosting platform for Wordpress,True,Solo-Only,"
+12
+","
+3 days
+","
+$150
+",,,,,,,,, 13,288 ,"P1
+$4100 – $4500
+P2
+$2100 – $2500
+P3
+$450 – $600",,,,
+Newfold Builder VDP,,https://bugcrowd.com/newfold-builder-vdp,Websitebuilder.com VDP,,Solo-Only,"
+5
+","
+2 days
+",,,,,,,,,, 33,121 ,,,,,
+HostGator,"Points - $4,500",https://bugcrowd.com/hostgator,Submit your finding to the program!,True,,"
+21
+","
+2 days
+","
+$1,060
+",,,,,,,,, 16,184 ,"P1
+$4100 – $4500
+P2
+$2100 – $2500
+P3
+$450 – $600",,,,
+Reseller Club VDP Pro,,https://bugcrowd.com/newfold-resellerclub-vdp,ResellerClub has evolved into a one-stop-shop marketplace for…,True,,"
+21
+","
+2 days
+",,,,,,,,,, 51,177 ,,,,,
+HostGator Latam Bug Bounty,"Points - $2,500",https://bugcrowd.com/hostgator-latam-bb,Submit your finding to the program!,,Solo-Only,"
+10
+","
+3 days
+","
+$150
+",,,,,,,,,View the hall,119 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600",,,,
+1Shoppingcart.com,"Points - $2,500",https://bugcrowd.com/shoppingcart,"Get an Ecommerce store, and start selling online!", Partial safe harbor,Solo-Only,"
+94
+","
+1 day
+",,,,,,,,,, 54,539 ,"$4500
+P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600",,,,
+Newfold Vdeck VDP,,https://bugcrowd.com/newfold-vdeck-vdp,Submit your finding to the program!,True,Solo-Only,"
+13
+","
+11 days
+",,,,,,,,,, 36,104 ,,,,,
+Web.com VDP,,https://bugcrowd.com/webdotcom-vdp,Submit your finding to Web.com's Vulnerability Disclosure Pro…, Partial safe harbor,Solo-Only,"
+98
+","
+5 days
+",,,,,,,,,, 88,234 ,,,,,
+Newfold Vdeck Bug Bounty,"Points - $4,500",https://bugcrowd.com/newfold-vdeck-bb,Submit your finding to the program!,True,Solo-Only,"
+7
+","
+4 days
+",,,,,,,,,, 13,137 ,"P1
+$4100 – $4500
+P2
+$2100 – $2500
+P3
+$450 – $600",,,,
+SnapNames,"Points - $2,500",https://bugcrowd.com/snapnames,Submit your finding to SnapNames' bug bounty,True,Solo-Only,"
+17
+","
+4 days
+","
+$450
+",,,,,,,,, 12,247 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600",,,,
+ANZ Responsible Disclosure Program,,https://bugcrowd.com/anz-vdp,Submit your findings to ANZ's responsible disclosure program, Partial safe harbor,Solo-Only,"
+4
+","
+8 days
+",,,,,,,,,,View the hall,12 ,,,,,
+Western Union,"$100 - $3,000",https://bugcrowd.com/westernunion,Moving money for better,,,"
+455
+","
+11 days
+","
+$550
+",,,,,,,,, 898,2590 ,"P1
+$1500 – $3000
+P2
+$700 – $1500
+P3
+$300 – $700
+P4
+$100 – $200",,"
+Do not perform DoS or DDoS attacks.
+Do not in any way attack our end users, or engage in the trade of stolen/breached user credentials.
+Do NOT conduct non-technical attacks such as social engineering, phishing or unauthorized access to Infrastructure.
+Do NOT use automated scanners and tools.
+","
+3rd Party Clients (e.g. WordPress). If you are unsure whether or not a client is 3rd party, please check with us.
+Re-posting of vendor notices for platform updates 
+Login Page / Forgot Password Page Account Brute force or account lockout not enforced.
+Logout Cross-Site Request Forgery (logout CSRF)
+",
+Service NSW Vulnerability Disclosure Program,,https://bugcrowd.com/service-nsw-vdp,Service NSW values the positive impact security researchers h…,True,Solo-Only,"
+38
+","
+2 days
+",,,,,,,,,, 57,154 ,,,,,
+Video Viewing Platform,"$200 - $5,000",https://bugcrowd.com/programs/teasers/D28qs1YDrtgsf5fFDf4asFLX,Help Secure Users of All Ages,,,,,,,,,,,,,,,,,,,,
+A Leading Financial Services and Insurance Company,"$200 - $3,000",https://bugcrowd.com/programs/teasers/PhZA2CKG9vHhhBVM4EwcXuaJ,Protect the company that protects your life!, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Stryker,,https://bugcrowd.com/stryker-vdp,Stryker Vulnerability Disclosure Program,,Solo-Only,"
+95
+","
+4 days
+",,,,,,,,,, 60,96 ,,,,,
+Monash University,,https://bugcrowd.com/monash-esf,Monash University Vulnerability Disclosure Program (VDP) ,,Solo-Only,"
+373
+","
+4 days
+",,,,,,,,,, 189,259 ,,,,,
+CoinDCX Managed Bug Bounty,"$100 - $2,500",https://bugcrowd.com/coindcx-og,India’s largest & safest cryptocurrency exchange backed by se…,,,"
+24
+","
+3 days
+","
+$600
+",,,,,,,,, 27,537 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200","P1
+$750 – $1000
+P2
+$500 – $750
+P3
+$250 – $450
+P4
+$100 – $150",,,
+Bullish exchange,"$200 - $25,000",https://bugcrowd.com/bullish-exchange,Help Secure Bullish - a new breed of exchange,,Solo-Only,"
+1
+","
+2 days
+",,,,,,,,,,View the hall,155 ,"P1
+$8000 – $25000
+P2
+$4000 – $9000
+P3
+$1500 – $5000
+P4
+$200 – $2000",,,,
+Asana,"$300 - $6,500",https://bugcrowd.com/asana,We're empowering teams to do great things together.,,,"
+83
+","
+4 days
+","
+$493.75
+",,,,,,,,, 80,960 ,,"P1
+$6100 – $6500
+P2
+$2100 – $2500
+P3
+$850 – $1000
+P4
+$300 – $500",,,
+"Appliances - Barracuda Networks, Inc.",,https://bugcrowd.com/barracuda,Trusted Planet-Wide, Partial safe harbor,,"
+152
+","
+19 days
+",,,,,,,,,, 104,409 ,,,,,
+Kaleido,"$100 - $6,000",https://bugcrowd.com/kaleido,"Help secure Kaleido, we are part of the Canva family! ",,,"
+35
+","
+3 days
+","
+$100
+",,,,,,,,, 28,312 ,"P1
+$6000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+WOO Network: Bug Bounty Program,"$200 - $9,000",https://bugcrowd.com/woo-network,Zero-fee Trading Platform,,,"
+29
+","
+3 days
+",,Up to $5000,,Up to $5000,,,,,, 20,352 ,"$10000
+P1
+$6000 – $9000
+P2
+$3000 – $4000
+P3
+$600 – $1200
+P4
+$200 – $600",,,,
+Mathematical software solutions provider,"$150 - $7,000",https://bugcrowd.com/programs/teasers/eQuhxoBoidGUJpQZgWisbrrk,Level up your web skills testing a software you’ve probably u…,,,,,,,,,,,,,,,,,,,,
+ 1Password,"$300 - $30,000",https://bugcrowd.com/agilebits,1Password is the world's best password manager. Perfect for p…,,,"
+135
+","
+3 days
+","
+$1,912.50
+",,,,,,,,, 132,779 ,,"$1000000
+P1
+$30000
+P2
+$6000
+P3
+$600
+P4
+$300",,,
+American Battle Monuments Commission,,https://bugcrowd.com/abmc-vdp,American Battle Monuments Commission Vulnerability Disclosure…,,Solo-Only,"
+1
+",,,,,,,,,,,View the hall,16 ,,,,,
+Backblaze,"$150 - $4,000",https://bugcrowd.com/backblaze,Help Secure Backblaze,,,"
+32
+","
+4 days
+",,,,,,,,,, 28,354 ,"$15000
+P1
+$2500 – $4000
+P2
+$1000 – $2000
+P3
+$500 – $750
+P4
+$150 – $250",,,,
+Lime,"$200 - $7,000",https://bugcrowd.com/lime,Help secure Lime,,,"
+33
+","
+10 days
+","
+$400
+",,,,,,,,, 188,776 ,"P1
+$4000 – $7000
+P2
+$2000 – $3500
+P3
+$500 – $1500
+P4
+$200 – $450",,,,
+Help an Secure an Educational Non-Profit,"$150 - $3,500",https://bugcrowd.com/programs/teasers/misty-sound-7666,Help an Educational Non-Profit Secure Student Data and Privac…,,,,,,,,,,,,,,,,,,,,
+Gorillas,,https://bugcrowd.com/gorillas-vdp,Vulnerability Disclosure Program - Powered by Bugcrowd,True,,"
+5
+","
+3 days
+",,,,,,,,,,View the hall,34 ,,,,,
+Pretrial Services Agency for the District of Columbia,,https://bugcrowd.com/psa-vdp,A Federal agency dedicated to promoting pretrial justice and …,,Solo-Only,"
+0
+","
+about 11 hours
+",,,,,,,,,, 12,25 ,,,,,
+Flourish,"$100 - $6,000",https://bugcrowd.com/flourish,Help secure the Flourish platform! ,,,"
+25
+","
+1 day
+","
+$550
+",,,,,,,,, 27,448 ,"P1
+$6000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+Digital Shadows VDP,,https://bugcrowd.com/digitalshadows-vdpesf,Vulnerability Disclosure Program - Powered by Bugcrowd,,Solo-Only,"
+1
+",,,,,,,,,,,View the hall,20 ,,,,,
+Railroad Retirement Board - Vulnerability Disclosure Program,,https://bugcrowd.com/rrb-vdp,Vulnerability Disclosure Program - Powered by Bugcrowd,,Solo-Only,"
+1
+","
+3 days
+",,,,,,,,,,View the hall,28 ,,,,,
+Secure the Leading Sales Engagement Platform,"$50 - $6,000",https://bugcrowd.com/programs/teasers/black-fire-29,We have been turning insights into actions that improve your …,,,,,,,,,,,,,,,,,,,,
+Cloudinary,"Points - $4,000",https://bugcrowd.com/cloudinary,"Cloud image & video upload, storage, management & CDN",,,"
+124
+","
+3 days
+","
+$1,480
+",,,,,,,,, 404,1504 ,"$7000
+P1
+$2000 – $4000
+P2
+$500 – $2000
+P3
+$0 – $500",,,,
+Elementor: Bug Bounty Program,"Points - $4,000",https://bugcrowd.com/elementor,"Elementor is the best FREE WordPress Website Builder, with ov…",,,"
+47
+","
+3 days
+","
+$600
+",,,,,,,,, 47,445 ,"$5000
+P1
+$2000 – $4000
+P2
+$500 – $2000
+P3
+$0 – $500","P1
+$500",,,
+Lamoda,"$100 - $1,600",https://bugcrowd.com/lamoda,Code the lifestyle,,,"
+24
+","
+3 days
+","
+$150
+",,,,,,,,, 21,130 ,"$1700
+P1
+$1200 – $1600
+P2
+$600 – $900
+P3
+$300 – $400
+P4
+$100 – $150",,,,
+Nextup.ai,"$100 - $1,500",https://bugcrowd.com/nextupai,Please submit your finding to Nextup.ai's bug bounty program,,,"
+8
+","
+$250
+",,,,,,,,,,View the hall,28 ,"P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,,
+Xfinity Home & xFi,"Points - $3,500",https://bugcrowd.com/xfinity-home,Xfinity Home gives you peace of mind with a total home securi…,,,"
+110
+","
+1 day
+","
+$8,710
+",,,,,,,,, 114,727 ,"P1
+$1500 – $3500
+P2
+$750 – $1200
+P3
+$300 – $600
+P4
+$0 – $250",,,,
+Prosus,"$100 - $1,250",https://bugcrowd.com/prosus-og,Prosus,,Solo-Only,"
+7
+","
+5 days
+",,,,,,,,,,View the hall,46 ,"P1
+$800 – $1250
+P2
+$500 – $750
+P3
+$250
+P4
+$100","P1
+$800 – $1200
+P2
+$500 – $750
+P3
+$250
+P4
+$100",,,
+Dell Technologies' Products Bug Bounty Program,"$200 - $5,000",https://bugcrowd.com/dell-product,Submit your finding to Dell's Product Bug Bounty Program, Partial safe harbor,,"
+49
+","
+about 1 month
+","
+$2,625
+",,,,,,,,, 22,98 ,"P1
+$5000
+P2
+$3000
+P3
+$1500
+P4
+$200",,"
+Consumer Platforms (i.e., Inspiron, Alienware, XPS, Vostro)
+Commercial Platforms  (i.e., Latitude, OptiPlex, Precision, Rugged, Latitude Education, Chrome, Wyse Thin Client) 
+","
+Alienware Command Center
+Alienware OC Controls
+Alienware Update
+Dell Command Configure
+Dell Command Integration Suite for System Center
+Dell Command Intel vPro Out of Band
+Dell Command Monitor
+Dell Command Powershell Provider
+Dell Command Repository Manager
+Dell Command Update
+Dell Core Services Cloud
+Dell Customer Connect
+Dell Digital Delivery
+Dell Display Manager
+Dell Hybrid Client
+Dell Optimizer
+Dell OS Recovery Tool
+Dell Performance Manager
+Dell Peripheral Manager
+Dell Power Manager
+Dell Premier Color
+Dell Remediation Platform 
+Dell Rugged Control Center
+Dell SupportAssist OS Recovery
+Dell SupportAssist for Home PCs
+Dell SupportAssist for Business PCs
+Dell Telemetry Platform Service
+Dell Trusted Device
+Dell Update
+Dell Web Services
+My Dell
+MyDell Mobile
+Wyse Management Suite
+Wyse Proprietary OS (Modern ThinOS)
+",
+Dell Technologies Application Bug Bounty,"$50 - $2,500",https://bugcrowd.com/dell-com,"Giving you what you need to securely connect, produce, and co…",,,"
+1453
+","
+5 days
+","
+$978.12
+",,,,,,,,, 234,631 ,"P1
+$2100 – $2500
+P2
+$1200 – $1500
+P3
+$500 – $750
+P4
+$50 – $100",,"
+By participating in this Bug Bounty Program, you agree to be bound to the terms of this program brief (“Dell Terms & Conditions”).
+These terms constitute the entire agreement between you and Dell and are governed by Texas law. Any changes to these terms must be in writing.
+The intent of this Bug Bounty Program is to encourage coordinated disclosure between you and Dell. Unless required by federal law or local law enforcement, Dell does not intend to pursue litigation against research and disclosure that meets the Dell Terms & Conditions.
+If legal action is initiated by a third party against you relative to the Bug Bounty Program and you are in full compliance with the Dell Terms & Conditions, Dell may at its sole discretion take reasonable steps to help make it known that your actions were conducted in compliance with this program.
+Dell will not publicly disclose the identity of any researcher without their consent, except where required by law.
+Dell reserves the right to change or modify the Dell Terms & Conditions at any time. Please check for any updates to this program brief before creating a new submission.
+By participating in this Bug Bounty Program, you waive any rights to the confidentiality of the submitted work and, further, you agree to grant Dell an irrevocable, worldwide, royalty-free, perpetual and transferable license to use the submitted research, disclosure and materials and you waive any claims against Dell based on Dell’s license or the rights granted.
+","
+This program requires explicit permission from Dell to disclose the results of a submission.
+Public disclosures made without written permission from Dell will make the researcher ineligible for future participation in this or other disclosure or bug bounty programs by Dell.
+Rewards will not be given for submissions which are publicly disclosed without written permission from Dell.
+",
+Kiteworks,"$250 - $25,000",https://bugcrowd.com/kiteworks-public,Help Secure Kiteworks,,,"
+15
+","
+5 days
+","
+$745
+",,,,,,,,, 18,282 ,"$50000
+P1
+$11000 – $25000
+P2
+$3000 – $10000
+P3
+$600 – $2000
+P4
+$250 – $500",,,,
+Halp,"$200 - $4,000",https://bugcrowd.com/halp,Halp,,,"
+17
+","
+2 days
+","
+$500
+",,,,,,,,,View the hall,43 ,"P1
+$4000
+P2
+$1200
+P3
+$500
+P4
+$200",,,,
+Northwestern Mutual VDP,,https://bugcrowd.com/northwestern-vdp,"For 160 years, we've helped our clients achieve financial sec…",,Solo-Only,"
+6
+",,,,,,,,,,, 15,36 ,,,"
+Prospect - Prospective future clients who have interest in buying products from Northwestern mutual and have registered to the online platform. User should receive an online invite from a financial representative.  Prospect Users will have access only to the basic functionalities of the CX platform.
+Client - Users who owns a product (Risk/investment) and registered to the Northwestern mutual online platform.  Clients can directly register in the application using their product number and Personal Information (SSN, DOB, First name and Last Name).
+Insurance Clients - Users who own any of the following products will have /Insurance page with product information:  Life, DI, BDI, LTC, VL, UL, VUL, BOLI, and COLI
+Investment Clients - Users who own any of the following products will have /Investment page with product information:  Brokerage, Advisory, PCS/PCS Trusts, Fixed Annuities, Variable Annuities, Income Plans, Signature Annuities, and Access Funds
+",,"
+ The parties to this Agreement are you and the Northwestern Mutual Life Insurance Company.
+ By participating in the Program, investigating a potential vulnerability, or submitting a vulnerability, you acknowledge that you have not disclosed and agree that you will not disclose the vulnerability to anyone other than the Northwestern Mutual Life Insurance Company.  Any disclosure would violate this Agreement unless approved in writing by an authorized employee of the Northwestern Mutual Life Insurance Company responsible for cybersecurity threat detection and mitigation.  You agree that money damages may not be a sufficient remedy for a breach of this paragraph by you and that the Northwestern Mutual Life Insurance Company will be entitled to specific performance as a remedy to this breach and an injunction without the posting of a bond.    Such remedy will not be deemed to be the exclusive remedy for any such breach but will be in addition to all other remedies available at law or equity to the Northwestern Mutual Life Insurance Company.
+
+ By submitting information about a potential vulnerability, you are granting the Northwestern Mutual Life Insurance Company a worldwide, royalty-free, non-exclusive license to use your submission for the purpose of addressing vulnerabilities in products and services offered by the Northwestern Mutual Life Insurance Company.
+ In the event of substantial duplicate submissions, the Northwestern Mutual Life Insurance Company may at its discretion provide a reward only for the earliest received submission.  Eligibility for rewards, determination of the recipients for the rewards and the amount of rewards is at the discretion of the Northwestern Mutual Life Insurance Company.
+
+ If issues reported to our bug bounty program affect a third party or another vendor, the Northwestern Mutual Life Insurance Company reserves the right to forward details of the issue along to the party without further discussion with the researcher.
+ You are responsible for all taxes associated with and imposed on any reward you may receive from the Northwestern Mutual Life Insurance Company.
+
+ If you inadvertently access proprietary customer, employee, or business related information during your testing, the information must not be used, disclosed, stored, recorded or processed any further in any way.  Inadvertent access to this type of data must be disclosed within your submission with identifying information of the data source and remediation you have taken to secure the data.
+ Your research activities must not negatively impact the Northwestern Mutual Life Insurance Company’s or LearnVest’s product or services in any way or the online environment availability or performance of such products or services.
+ These terms and conditions along with the specifications, requirements and restrictions set forth in the bug bounty brief constitute the entire Agreement of the parties.  This Agreement is covered by California law.  This agreement can only be amended by the Northwestern Mutual Life Insurance Company.
+If any part of this Agreement is found to be illegal or unenforceable, then the parties will be relieved of their responsibilities arising under such portion, but only to the extent that such art of the Agreement is illegal or unenforceable.
+You must not be the author of the code identified as a vulnerability.
+You must not be an employee or spouse of an employee of the Northwestern Mutual Life Insurance Company or any of its affiliates or subsidiaries, including the Northwestern Mutual Wealth Management Company, NMIS, or LearnVest.
+"
+Sportradar VDP Pro,,https://bugcrowd.com/sportradar-vdp,Global leaders in understanding and leveraging the power of s…,,Solo-Only,"
+93
+","
+3 days
+",,,,,,,,,, 40,80 ,,,,,
+Do you know who IAM?,"$150 - $2,500",https://bugcrowd.com/programs/teasers/falling-wave-7761,Help secure an identity and access management company's platf…,,,,,,,,,,,,,,,,,,,,
+Phemex Bug Bounty,"$150 - $2,500",https://bugcrowd.com/phemex,Submit your finding to the program!,,Solo-Only,"
+13
+","
+4 days
+","
+$325
+",,,,,,,,, 15,148 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+Just Eat - Managed Bug Bounty,"$150 - $3,000",https://bugcrowd.com/justeat-ogmbb,Empowering your every food moment,True,,"
+136
+","
+4 days
+","
+$500
+",,,,,,,,, 43,299 ,"$4000
+P1
+$2500 – $3000
+P2
+$1500 – $2000
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+ExpressVPN,"$150 - $2,500",https://bugcrowd.com/expressvpn,Help us improve the security and privacy of ExpressVPN users.,True,,"
+79
+","
+3 days
+","
+$500
+",,,,,,,,, 76,506 ,"$100000
+P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+NEOGOV Public Assets,"$100 - $3,500",https://bugcrowd.com/neohrms,"Human Resource Software, SaaS & Cloud Solutions",,,"
+51
+","
+about 1 month
+","
+$166.66
+",,,,,,,,, 103,262 ,"P1
+$3500
+P2
+$1200
+P3
+$300
+P4
+$100",,,,
+US Environmental Protection Agency Vulnerability Disclosure ,,https://bugcrowd.com/epa-vdp,Submit your report here!,True,,"
+234
+","
+3 days
+",,,,,,,,,, 111,178 ,,,,,
+Deutsche Bank Vulnerability Disclosure Program,,https://bugcrowd.com/deutschebank-vdp,German multinational investment bank and financial services c…, Partial safe harbor,,"
+19
+","
+4 days
+",,,,,,,,,, 74,92 ,,,,,
+HubSpot,"$50 - $5,000",https://bugcrowd.com/hubspot,"Marketing, Sales, and Service software platform for scaling c…",,,"
+986
+","
+4 days
+","
+$554.16
+",,,,,,,,, 207,1040 ,"P1
+$5000
+P2
+$900
+P3
+$200
+P4
+$50",,,,
+Under Armour Corporate,,https://bugcrowd.com/underarmour-corp,Submit your finding to Under Armour's program!,True,Solo-Only,"
+5
+","
+3 days
+",,,,,,,,,,View the hall,114 ,,,,,
+DICK'S Sporting Goods,,https://bugcrowd.com/dickssportinggoods,DICK'S Sporting Goods Vulnerability Disclosure Program ,True,Solo-Only,"
+138
+","
+1 day
+",,,,,,,,,, 140,310 ,,,,,
+iFood: Bug Bounty Program,"$150 - $2,500",https://bugcrowd.com/ifood-og,iFood Bug Bounty Program,True,,"
+60
+","
+10 days
+","
+$728.57
+",,,,,,,,, 43,245 ,"$2600
+P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+Craft Coders Marketplace Bug Bounty,"$100 - $1,500",https://bugcrowd.com/craftcoders,Submit your report here!,True,,"
+4
+","
+11 days
+","
+$330
+",,,,,,,,,View the hall,59 ,"P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,,
+Caffeine,"$150 - $5,000",https://bugcrowd.com/caffeine,"Caffeine is a social broadcasting platform for gaming, entert…",,,"
+110
+","
+2 days
+","
+$200
+",,,,,,,,, 303,1301 ,"$6000
+P1
+$2000 – $5000
+P2
+$800 – $1100
+P3
+$350 – $600
+P4
+$150 – $300",,,,
+Geotab: VDP,,https://bugcrowd.com/geotab-vdp,Submit your findings to this program!,,,"
+71
+","
+1 day
+",,,,,,,,,, 99,171 ,,,,,
+Skroutz Public Managed Bug Bounty,"$200 - $4,500",https://bugcrowd.com/skroutz,Skroutz,,,"
+20
+","
+2 days
+","
+$333.33
+",,,,,,,,, 23,178 ,"P1
+$4100 – $4500
+P2
+$1500 – $1750
+P3
+$600 – $850
+P4
+$200 – $250",,,,
+Imperva Bug Bounty,"$150 - $2,500",https://bugcrowd.com/imperva-mbb,Help secure Imperva,True,Solo-Only,"
+76
+","
+5 days
+","
+$592.85
+",,,,,,,,, 57,230 ,"P1
+$2100 – $2500
+P2
+$1000 – $1250
+P3
+$450 – $600
+P4
+$150 – $200",,,,
+NAB's Responsible Disclosure Program,,https://bugcrowd.com/nationalaustraliabankog,Responsible Disclosure Program, Partial safe harbor,Solo-Only,"
+131
+","
+5 days
+",,,,,,,,,, 128,254 ,,,,,
+Office of Navajo and Hopi Indian Relocation (ONHIR) - Vulnerability Disclosure Program ,,https://bugcrowd.com/onhir-vdp,Report ONHIR Vulnerabilities! ,True,,"
+0
+","
+15 minutes
+",,,,,,,,,,View the hall,20 ,,,,,
+EXIM - Vulnerability Disclosure Program,,https://bugcrowd.com/exim-vdp,Submit your report here.,True,,"
+10
+","
+about 2 hours
+",,,,,,,,,, 22,45 ,,,,,
+Rakuten VDP,,https://bugcrowd.com/rakuten-vdp,Submit your finding to Rakuten's vulnerability disclosure pro…,True,Solo-Only,"
+74
+","
+3 days
+",,,,,,,,,, 132,278 ,,,,,
+eazyBI,"$100 - $1,500",https://bugcrowd.com/eazybi,eazyBI Bug Bounty Program , Partial safe harbor,,"
+21
+","
+3 days
+",,,,,,,,,, 23,209 ,"P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,,
+The Coca-Cola Company Vulnerability Disclosure Program,,https://bugcrowd.com/coca-cola,"Since the first Coca-Cola was served in 1886, The Coca-Cola C…",True,Solo-Only,"
+181
+","
+3 days
+",,,,,,,,,, 180,366 ,,,,,
+Leading digital transaction provider. New mobile targets introduced recently!,"$100 - $5,000",https://bugcrowd.com/programs/teasers/Jpzfw2e8eSJaYSjdN9TGiK8d,"This program has a range of Web + API targets, and now mobile…", Partial safe harbor,,,,,,,,,,,,,,,,,,,
+A fantasy sports platform with over 100 million users,"$500 - $8,000",https://bugcrowd.com/programs/teasers/APnRLRQMhtdKEokr6Sd3TWEi,"Help secure our web apps, mobile apps and APIs",True,,,,,,,,,,,,,,,,,,,
+Cengage VDP,,https://bugcrowd.com/cengage-vdp,Cengage Vulnerability Disclosure Program,True,Solo-Only,"
+336
+","
+1 day
+",,,,,,,,,, 212,523 ,,,"
+Clickjacking on pages with no sensitive actions
+Attacks requiring MITM or physical access to a user's device.
+Previously known vulnerable libraries without a working Proof of Concept.
+Comma Separated Values (CSV) injection without demonstrating a vulnerability.
+Missing best practices in SSL/TLS configuration.
+Any activity that could lead to the disruption of our service (DoS).
+Content spoofing and text injection issues without showing an attack vector/without being able to modify HTML/CSS
+Rate limiting or bruteforce issues on non-authentication endpoints
+Missing best practices in Content Security Policy.
+Missing HttpOnly or Secure flags on cookies
+Missing email best practices (Invalid, incomplete or missing SPF/DKIM/DMARC records, etc.)
+Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]
+Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).
+Tabnabbing
+Open redirect - unless an additional security impact can be demonstrated
+Issues that require unlikely user interaction
+","
+Authorized in accordance with the Computer Fraud and Abuse Act (CFAA) (and/or similar state laws), and we will not initiate or support legal action against you for accidental, good faith violations of this policy;
+Exempt from the Digital Millennium Copyright Act (DMCA), and we will not bring a claim against you for circumvention of technology controls;
+Exempt from restrictions in our Terms & Conditions that would interfere with conducting security research, and we waive those restrictions on a limited basis for work done under this policy; and
+Lawful, helpful to the overall security of the Internet, and conducted in good faith.
+You are expected, as always, to comply with all applicable laws.
+",
+Okta,"$100 - $25,000",https://bugcrowd.com/okta,Cloud Identity and Mobility Management Service,True,,"
+197
+","
+17 days
+","
+$550
+",,,,,,,,, 213,781 ,"P1
+$5000 – $25000
+P2
+$750 – $7500
+P3
+$100 – $1000
+P4
+$100 – $200",,,,
+United Airlines,,https://bugcrowd.com/united-vdp,United Airlines Vulnerability Disclosure Program,True,Solo-Only,"
+143
+","
+8 days
+",,,,,,,,,, 90,310 ,,,,,
+FIS,"Points - $100,000",https://bugcrowd.com/fis,"Advancing the ways the world pays, banks and invests.",True,,"
+556
+","
+7 days
+","
+$4,231.06
+",,,,,,,,, 122,224 ,"$100000
+P1
+$10000 – $25000
+P2
+$2500 – $10000
+P3
+$200 – $2500
+P4
+$0 – $200","P1
+$100000",,,
+Lbrands Victoria's Secret - VDP Pro,,https://bugcrowd.com/lbrands-vs-vdp,"An iconic specialty retail brand, Victoria’s Secret needs no …",True,Solo-Only,"
+12
+","
+3 days
+",,,,,,,,,, 47,182 ,,,,,
+Federal Communications Commission: Vulnerability Disclosure Program,,https://bugcrowd.com/fcc-vdp,Report FCC Vulnerabilities! ,,Solo-Only,"
+60
+","
+3 days
+",,,,,,,,,, 106,240 ,,,,,
+Department of Homeland Security: Vulnerability Disclosure Program,,https://bugcrowd.com/dhs-vdp,Report DHS Vulnerabilities! ,True,Solo-Only,"
+130
+","
+5 days
+",,,,,,,,,, 153,297 ,,,,,
+National Labor Relations Board: Vulnerability Disclosure Program,,https://bugcrowd.com/nlrb-vdp,Report NLRB Vulnerabilities! ,True,Solo-Only,"
+5
+","
+16 minutes
+",,,,,,,,,, 11,30 ,,,,,
+Federal Retirement Thrift Investment Board : Vulnerability Disclosure Program,,https://bugcrowd.com/frtib-vdp,Report FRTIB Vulnerabilities! ,True,Solo-Only,"
+2
+","
+about 7 hours
+",,,,,,,,,, 11,23 ,,,,,
+Millennium Challenge Corporation: Vulnerability Disclosure Program,,https://bugcrowd.com/mcc-vdp,Report MCC Vulnerabilities! ,True,Solo-Only,"
+15
+","
+about 1 month
+",,,,,,,,,, 49,94 ,,,,,
+United States Department of Agriculture: Vulnerability Disclosure Program,,https://bugcrowd.com/usda-vdp,Report USDA Vulnerabilities! ,True,Solo-Only,"
+204
+","
+3 days
+",,,,,,,,,, 87,150 ,,,,,
+Privacy and Civil Liberties Oversight Board: Vulnerability Disclosure Program,,https://bugcrowd.com/pclob-vdp,Report PCLOB Vulnerabilities! ,True,Solo-Only,"
+1
+","
+about 1 hour
+",,,,,,,,,,View the hall,22 ,,,,,
+Equal Employment Opportunity Commission: Vulnerability Disclosure Program,,https://bugcrowd.com/eeoc-vdp,Report EEOC Vulnerabilities! ,True,Solo-Only,"
+1
+","
+3 days
+",,,,,,,,,, 14,27 ,,,,,
+Occupational Safety and Health Review Commission: Vulnerability Disclosure Program,,https://bugcrowd.com/oshrc-vdp,Report OSHRC Site Vulnerabilities! ,True,Solo-Only,"
+11
+","
+3 days
+",,,,,,,,,, 21,41 ,,,,,
+Court Services and Offender Supervision Agency: Vulnerability Disclosure Program,,https://bugcrowd.com/csosa-vdp,Report CSOSA Vulnerabilities! ,True,Solo-Only,"
+14
+","
+about 8 hours
+",,,,,,,,,, 58,101 ,,,,,
+Bullish.com,"$200 - $12,000",https://bugcrowd.com/bullish,Help Secure Bullish - a new breed of exchange,,,"
+5
+","
+3 days
+","
+$300
+",,,,,,,,,View the hall,220 ,"P1
+$7000 – $12000
+P2
+$3500 – $7000
+P3
+$1500 – $4000
+P4
+$200 – $2000",,,,
+AMEX - Global Business Travel Vulnerability Disclosure Program,,https://bugcrowd.com/amexgbt-vdp,We make it our business to meet your company's travel needs,True,Solo-Only,"
+714
+",,,,,,,,,,, 154,285 ,,,,,
+Twilio,"$100 - $9,500",https://bugcrowd.com/twilio,A Cloud Communications Company,True,,"
+558
+","
+4 days
+","
+$241.66
+",,,,,,,,, 622,2171 ,"P1
+$2500 – $8000
+P2
+$700 – $2500
+P3
+$200 – $500
+P4
+$100 – $150","P1
+$500 – $1000
+P2
+$200 – $500
+P3
+$100 – $200
+P4
+$0 – $100",,,
+A multinational consumer goods is looking for top talent to secure their huge attack surface!,"Points - $2,500",https://bugcrowd.com/programs/teasers/aCinC48ZuX41qsYYrDuQ5PK4,"Gigantic web scope, if you're looking to make some money this…",,,,,,,,,,,,,,,,,,,,
+Unity Technology,"$100 - $3,000",https://bugcrowd.com/unity,"Unity brings state-of-the-art, affordable multiplatform tools…",,,"
+251
+","
+13 days
+","
+$477.77
+",,,,,,,,, 73,421 ,"P1
+$2000 – $3000
+P2
+$750 – $1200
+P3
+$250 – $500
+P4
+$100 – $200",,,,
+Smartmockups,"$100 - $6,000",https://bugcrowd.com/smartmockups,Help Secure Smartmockups,True,,"
+36
+","
+3 days
+","
+$4,525
+",,,,,,,,, 37,403 ,"P1
+$6000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+Pixabay,"$100 - $6,000",https://bugcrowd.com/pixabay,Pixabay Vulnerability Disclosure Program,,,"
+58
+","
+2 days
+","
+$850
+",,,,,,,,, 47,446 ,"P1
+$6000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+Pexels,"$100 - $6,000",https://bugcrowd.com/pexels,Pexels' Vulnerability Disclosure Program, Partial safe harbor,,"
+30
+","
+3 days
+","
+$850
+",,,,,,,,, 28,362 ,"P1
+$6000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+Lbrands Bath & Body Works - VDP Pro,,https://bugcrowd.com/lbrands-bbw-vdp,Bath & Body Works is one of the world’s leading specialty ret…,True,Solo-Only,"
+11
+","
+3 days
+",,,,,,,,,, 41,151 ,,,,,
+Phrase Vulnerability Disclosure Program,,https://bugcrowd.com/phrase-vdp,Phrase is a global localization platform, Partial safe harbor,Solo-Only,"
+53
+","
+about 1 month
+",,,,,,,,,, 75,193 ,,,,,
+K15t,"$100 - $1,500",https://bugcrowd.com/k15t,Apps to Amplify the Atlassian Experience for Everybody,,,"
+43
+","
+3 days
+","
+$300
+",,,,,,,,, 25,96 ,,"P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,
+Stiltsoft,"$100 - $3,000",https://bugcrowd.com/stiltsoft,Stiltsoft's bug bounty program,True,,"
+20
+","
+2 days
+","
+$100
+",,,,,,,,, 13,112 ,"P1
+$3000
+P2
+$1800
+P3
+$600
+P4
+$200","P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100","
+Navigate to https://bitbucket.org/ and select ""Log In""
+Select ""Sign Up"" and create an account with your @bugcrowdninja.com email address.
+Install the Awesome Graphs app
+Start testing
+","
+Navigate to www.atlassian.com and download Bitbucket Server or Bitbucket Data Center
+
+Install the product and generate a trial license for Bitbucket
+Install the Awesome Graphs for Bitbucket app and generate a trial license for the app. Please use your [username]@bugcrowdninja.com email alias to get the license. 
+Start testing
+",
+Credit Karma,"$100 - $5,000",https://bugcrowd.com/creditkarma,Free Credit Scores & Credit Report Monitoring, Partial safe harbor,,"
+88
+","
+about 1 month
+","
+$315.38
+",,,,,,,,, 219,1064 ,"P1
+$2500 – $5000
+P2
+$1000 – $2250
+P3
+$300 – $700
+P4
+$100 – $250","P1
+$1800 – $3000
+P2
+$600 – $1800
+P3
+$200 – $600
+P4
+$100 – $200","
+Enumerating and/or Brute Forcing Login and/or Registration.
+Attacks requiring physical access to a user's device.
+Lack of Exploit mitigations ie PIE, ARC, or Stack Canaries.
+Path disclosure in the binary.
+Lack of jailbreak detection.
+Lack of binary protection (anti-debugging) controls.
+Lack of root detection.
+Lack of obfuscation
+Lack of binary protection
+OAuth ""app secret"" hard-coded/recoverable in apk.
+Crashes due to malformed URL Schemes.
+Snapshot/Pasteboard leakage.
+Runtime hacking exploits (exploits only possible in a jailbroken environment).
+User data stored unencrypted on the file system on rooted devices.
+Reports from static analysis of the binary without an accompanying PoC that exploits some business logic or security control.
+Bypass certificate pinning on rooted devices.
+Sensitive information retained as plaintext in the device’s memory.
+Shared links leaked through the system clipboard.
+Any URIs leaked because a malicious app has permission to view URIs opened.
+Crashes due to malformed Intents sent to exported Activity/Service/BroadcastReceiver (exploiting these for sensitive data leakage is commonly in scope).
+Vulnerabilities found in a Credit Karma application that was not acquired from Credit Karma’s official Play store account.
+OAuth ""app secret"" hard-coded/recoverable in apk.
+Sensitive data retrieved as plaintext from disk on rooted devices.
+Reports from static analysis of the binary without an accompanying PoC that exploits some business logic or security control.
+",,
+lululemon,"$50 - $3,000",https://bugcrowd.com/lululemon,"Breathe easy, it's on us.",,,"
+212
+","
+3 days
+","
+$957.29
+",,,,,,,,, 214,1000 ,,"$10000
+P1
+$2700 – $3000
+P2
+$1000 – $1200
+P3
+$300 – $500
+P4
+$50",,,
+Whatfix,"$100 - $4,000",https://bugcrowd.com/whatfix,Whatfix Bug Bounty Program,True,,"
+34
+","
+4 days
+","
+$800
+",,,,,,,,, 34,191 ,"$5000
+P1
+$2100 – $4000
+P2
+$800 – $2000
+P3
+$300 – $800
+P4
+$100 – $200",,,,
+Help an AdTech Company Stay Safe!,"$200 - $4,500",https://bugcrowd.com/programs/teasers/LpGD4WXdR2UTu2mJ9pdhUMvA,This is for a technology company that empowers buyers of adve…,True,,,,,,,,,,,,,,,,,,,
+Aruba Networks Public Program,"$250 - $2,500",https://bugcrowd.com/aruba-public,People move. Networks must follow.,,,"
+270
+","
+3 days
+","
+$678.81
+",,,,,,,,, 138,406 ,"$5000
+P1
+$2500
+P2
+$1500
+P3
+$600
+P4
+$300",,,,
+Regions Bank Vulnerability Disclosure Program ,,https://bugcrowd.com/regions-vdp,Regions Bank Vulnerability Disclosure Program , Partial safe harbor,Solo-Only,"
+14
+","
+5 days
+",,,,,,,,,, 52,136 ,,,,,
+"Acorns Grow, Inc.","$200 - $3,500",https://bugcrowd.com/acorns,From acorns mighty oaks do grow,True,,"
+143
+","
+15 days
+","
+$481.25
+",,,,,,,,, 299,1133 ,"P1
+$3500
+P2
+$1750
+P3
+$650
+P4
+$200",,,,
+Intercom,"$150 - $5,000",https://bugcrowd.com/intercom,A fundamentally new way to communicate with your customers. I…, Partial safe harbor,,"
+321
+","
+12 days
+","
+$455.88
+",,,,,,,,, 264,1003 ,"P1
+$5000
+P2
+$1500
+P3
+$500
+P4
+$150",,,,
+Sprout Social,,https://bugcrowd.com/sproutsocial,A Management and Engagement Platform for Social Business,True,,"
+197
+","
+about 9 hours
+",,,,,,,,,, 237,558 ,,,,,
+Cash App,"$150 - $8,000",https://bugcrowd.com/cashapp,Help Secure Cash App,,,"
+25
+","
+3 days
+","
+$200
+",,,,,,,,, 42,276 ,"P1
+$6000 – $8000
+P2
+$2500 – $3000
+P3
+$900 – $1200
+P4
+$150 – $200",,,,
+Web + API Applications in this OnGoing Bug Bounty Program,"$150 - $2,500",https://bugcrowd.com/programs/teasers/ovv41tyYARpWDHrCsFHLse6D,Help this Ed Tech Company protect student data ,True,,,,,,,,,,,,,,,,,,,
+Kistler Vulnerability Disclosure Program,,https://bugcrowd.com/kistler-vdp,Measure. Analyze. Innovate.,True,Solo-Only,"
+66
+",,,,,,,,,,, 90,184 ,,,,,
+Jora,"$50 - $2,500",https://bugcrowd.com/jora,Help Secure Jora, Partial safe harbor,,"
+44
+","
+2 days
+","
+$100
+",,,,,,,,, 76,607 ,"P1
+$1000 – $2500
+P2
+$500 – $1000
+P3
+$100 – $500
+P4
+$50 – $100",,,,
+Opera Public Bug Bounty,"$50 - $10,000",https://bugcrowd.com/opera,"Opera is a leading global internet brand with a large, engage…",,,"
+114
+","
+2 days
+","
+$773.07
+",,,,,,,,, 134,614 ,"P1
+$3000 – $10000
+P2
+$500 – $3000
+P3
+$200 – $500
+P4
+$100 – $200","P1
+$100 – $3000
+P2
+$100 – $1500
+P3
+$100 – $750
+P4
+$50 – $100",,,
+20 Minuten,"$250 - $5,000",https://bugcrowd.com/twentyminuten,20 Minuten Bug Bounty Program,,,"
+97
+","
+5 days
+","
+$1,233.33
+",,,,,,,,, 88,582 ,"P1
+$4000 – $5000
+P2
+$2000 – $2400
+P3
+$600 – $900
+P4
+$250 – $300",,,,
+ Comcast Xfinity Vulnerability Disclosure Program,"Points - $1,250",https://bugcrowd.com/comcastvdp,"Digital Cable TV, Internet and Phone for Residential and Busi…",,,"
+1046
+","
+3 days
+","
+$1,125
+",,,,,,,,, 649,1214 ,"P1
+$0 – $1250",,,,
+23andMe,"Points - $5,000",https://bugcrowd.com/twentythree-and-me,"Our mission is to help people access, understand and benefit …",,,"
+83
+","
+3 days
+","
+$600
+",,,,,,,,, 48,332 ,"P1
+$0 – $5000
+P2
+$0 – $1250
+P3
+$0 – $450
+P4
+$0 – $150","P1
+$0 – $1000
+P2
+$0 – $500
+P3
+$0 – $200
+P4
+$0 – $100","
+api.cag.us-west-2.int.23andme.us
+you.cag.us-west-2.int.23andme.us
+auth.cag.us-west-2.int.23andme.us
+ fulfillment-integration.23andme.org
+
+","
+Navigate to https://you.cag.us-west-2.int.23andme.us/.
+Sign in with the credentials provided. You may be brought to a page saying, “Your kit has been registered.” Click on “Get Started” to navigate past this page.
+Next, click your username in the top right and choose “Settings” from the drop-down menu.
+From settings, you can change your email and password.
+We have introduced an email address filter to reduce the number of bounced emails. 
+In order to receive emails from our integration environment, please change the email address to contain a ""emailtest"" 
+suffix as described below.*
+
+
+Please change your email address to match the following pattern: <email-handle>+<anything-else>emailtest@<your- 
+  domain>
+
+Example acceptable emails:
+   samr@bugcrowdninja.com → samr+emailtest@bugcrowdninja.com
+   samr@bugcrowdninja.com → samr+01emailtest@bugcrowdninja.com
+
+
+
+You will receive an email with a link to verify your address. The link has the wrong FQDN (this is a known issue in our 
+integration environment). For verification, copy the verify link and change the domain from auth.cag.us-west- 
+2.int.23andme.net to auth.cag.us-west-2.int.23andme.us.
+
+Your new email should now be verified.
+Use this test credit  card number 4111 1111 1111 1111 for kit ordering and to purchase subscription model (23andMe+)
+Fulfillment API Credentials:
+",
+SmartThings Vulnerability Disclosure,,https://bugcrowd.com/smartthings,Add a little smartness to your things.,,,"
+28
+","
+1 day
+",,,,,,,,,, 47,167 ,,,,,
+OLX Group,,https://bugcrowd.com/olxgroup,"OLX Group is a global online marketplace, founded in 2006 and…",True,Solo-Only,"
+261
+","
+3 days
+",,,,,,,,,, 229,588 ,,,,,
+Mobility Company Looking for Your Skills!,"$100 - $5,000",https://bugcrowd.com/programs/teasers/pY68GCL2kFMfrz1meTHJAXh4,We invites you to test and help secure our primary assets - f…,True,,,,,,,,,,,,,,,,,,,
+Help secure this Peer-to-Peer Marketplace,,https://bugcrowd.com/programs/teasers/4WFYRFh1eGZhkPzZbuVCdCew,Leverage your Java experience on this marketplace ,True,Solo-Only,,,,,,,,,,,,,,,,,,
+codefortynine,"$100 - $1,500",https://bugcrowd.com/codefortynine,Test codefortynine's targets!, Partial safe harbor,,"
+15
+","
+3 days
+",,,,,,,,,, 11,88 ,"P1
+$1500
+P2
+$900
+P3
+$300
+P4
+$100",,,,
+Canva,"$100 - $10,000",https://bugcrowd.com/canva,Design Anything. Publish Anywhere.,,,"
+132
+","
+3 days
+","
+$2,540
+",,,,,,,,, 192,917 ,"P1
+$10000
+P2
+$2500
+P3
+$850
+P4
+$100",,,,
+Centrify,"$200 - $4,500",https://bugcrowd.com/centrify,The breach stops here, Partial safe harbor,,"
+246
+","
+3 days
+","
+$128.57
+",,,,,,,,, 463,1286 ,"P1
+$4100 – $4500
+P2
+$1500 – $1750
+P3
+$600 – $850
+P4
+$200 – $250","P1
+$900 – $1500
+P2
+$300 – $900
+P3
+$100 – $300
+P4
+$0 – $100","
+Intra-tenant data visibility - i.e. ability to see restricted information within the current tenant without appropriate based access being granted first in any portion of the product, either through data exposition, or escalation of privilege.
+Cross-tenant data visibility - All data stored on behalf of a given tenant should be visible only within that tenant.  Please use an additional tenant of your own to test these boundaries.
+The /resources, /my and /manage web applications and the underlying REST API surface used by them.  Note that API is documented: http://developer.centrify.com
+","Centrify Agent for Linux - Enables application to application password management
+
+Centrify Agent for Windows - Enables Cloud integrated Multi-Factor Authentication for Windows sign in
+
+Centrify Cloud Connector - Enables connectivity to Active Directory, Application Gateway (reverse web proxy), remote SSH/RDP access, etc
+
+Local Client Launcher - Enables launching SSH/RDP sessions from browser through native applications like Putty",
+Docusign: Vulnerability Disclosure Program,,https://bugcrowd.com/docusign-vdp,Our mission is to accelerate business and simplify life for c…,True,,"
+35
+","
+about 16 hours
+",,,,,,,,,, 55,144 ,,,,,
+Arlo Cash Rewards,"$100 - $6,000",https://bugcrowd.com/arlo,arlo Cash Rewards Program, Partial safe harbor,,"
+153
+","
+8 days
+","
+$817.39
+",,,,,,,,, 404,1295 ,"$15000
+P1
+$6000
+P2
+$2500
+P3
+$600
+P4
+$300","P1
+$2000 – $3000
+P2
+$1000
+P3
+$400
+P4
+$100",,,
+Kenna Security,"$50 - $4,500",https://bugcrowd.com/kennasecurity,A Hosted Vulnerability Intelligence Platform, Partial safe harbor,,"
+133
+","
+9 days
+","
+$366.66
+",,,,,,,,, 382,922 ,,"P1
+$3000 – $4500
+P2
+$1500 – $1750
+P3
+$150 – $300
+P4
+$50 – $100",,,
+eero,,https://bugcrowd.com/eero,"Finally, WiFi that works!", Partial safe harbor,,"
+21
+","
+about 13 hours
+",,,,,,,,,, 49,130 ,,,,,
+PlanetHoster,"$200 - $3,000",https://bugcrowd.com/planethosterinc,PlanetHoster invites you to test their web hosting platform!, Partial safe harbor,,"
+89
+","
+1 day
+","
+$1,083.33
+",,,,,,,,, 120,669 ,"P1
+$2000 – $3000
+P2
+$1250 – $2250
+P3
+$800 – $1500
+P4
+$200 – $1000",,,,
+Directly,"$250 - $3,000",https://bugcrowd.com/directly,CX Automation,True,,"
+67
+","
+2 days
+",,,,,,,,,, 197,507 ,,"P1
+$2500 – $3000
+P2
+$1500 – $2000
+P3
+$500 – $750
+P4
+$250 – $300",,,
+"Simplifying complex work wherever, and you can help secure it! (2x bonus rewards)","$150 - $2,500",https://bugcrowd.com/programs/teasers/Vjpfr6mxTdGw6VBYRvimMtQJ,APIs and Webapps used to bring the future of finance to light,True,,,,,,,,,,,,,,,,,,,
+Test a unicorn in the airline ticketing and hotel booking industry!,"$100 - $2,500",https://bugcrowd.com/programs/teasers/vzeiF8HxunufJrbpNbdrma4g,"Help secure our mobile apps, APIs and websites!",,,,,,,,,,,,,,,,,,,,
+Binance,"$200 - $10,000",https://bugcrowd.com/binance,Cryptocurrency Exchange‎, Partial safe harbor,,"
+291
+","
+2 days
+",,,,,,,,,, 304,2365 ,"$100000
+P1
+$5000 – $10000
+P2
+$1500 – $5000
+P3
+$600 – $1500
+P4
+$200 – $600",,,,
+Octopus,"$200 - $6,000",https://bugcrowd.com/octopus-og,Octopus Bug Bounty Program,True,,"
+54
+","
+1 day
+","
+$300
+",,,,,,,,, 99,695 ,,"P1
+$6000
+P2
+$2000 – $3000
+P3
+$500 – $1000
+P4
+$200 – $300",,,
+Skyscanner,"$100 - $8,000",https://bugcrowd.com/skyscanner,"We’re the travel company who puts you first. All the flight, …",True,,"
+129
+","
+5 days
+","
+$1,200
+",,,,,,,,, 728,1360 ,,"P1
+$3000 – $8000
+P2
+$900 – $3000
+P3
+$300 – $500
+P4
+$100 – $150",,,
+A Patient Engagement Platform,"$50 - $8,000",https://bugcrowd.com/programs/teasers/dKJhahhbBJQ7FLqLXeAJGMY8,Help protect our patients and doctors, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Stellantis ,"$150 - $7,500",https://bugcrowd.com/stellantis,"Stellantis, formed by the merger of Fiat Chrysler Automobiles…",True,,"
+571
+","
+9 days
+","
+$587.50
+",,,,,,,,, 599,1370 ,"P1
+$1500 – $7500
+P2
+$800 – $1500
+P3
+$450 – $800
+P4
+$150 – $400",,,,
+Personal Capital,"$150 - $4,000",https://bugcrowd.com/personalcapital,Financial Software and Wealth Management,True,,"
+61
+","
+about 1 month
+","
+$1,166.66
+",,,,,,,,, 93,393 ,"P1
+$3000 – $4000
+P2
+$1200 – $2000
+P3
+$550 – $700
+P4
+$150 – $250",,,,
+WestJet's Vulnerability Disclosure Program,,https://bugcrowd.com/westjet-disclose,WestJet VDP,True,Solo-Only,"
+38
+","
+about 1 month
+",,,,,,,,,, 96,297 ,,,,,
+"Automate, customize and extend!","$100 - $1,500",https://bugcrowd.com/programs/teasers/CuK9RZhPuFhKCvewXbxWFy3M,Creators of brilliant apps for the Atlassian stack and master…,True,,,,,,,,,,,,,,,,,,,
+Bitdefender,"$100 - $15,000",https://bugcrowd.com/bitdefender,Cybersecurity Solutions for Business and Personal Use,True,,"
+499
+","
+3 days
+","
+$1,062.50
+",,,,,,,,, 404,1821 ,"P1
+$3500 – $15000
+P2
+$1500 – $5000
+P3
+$200 – $1000
+P4
+$100 – $500",,,,
+Mastercard SRC,"$100 - $3,000",https://bugcrowd.com/mastercard-src,Mastercard operates the world’s fastest payments processing n…, Partial safe harbor,,"
+9
+","
+4 days
+",,,,,,,,,,View the hall,58 ,"P1
+$1000 – $3000
+P2
+$300 – $900
+P3
+$100 – $300
+P4
+$100",,,,
+Tesla,"$100 - $15,000",https://bugcrowd.com/tesla,Accelerating the world’s transition to sustainable energy, Partial safe harbor,,"
+675
+","
+2 days
+","
+$1,014.80
+",,,,,,,,, 675,2966 ,,"P1
+$3000 – $15000
+P2
+$500 – $3000
+P3
+$200 – $500
+P4
+$100 – $200",,,
+Viator,"$200 - $4,500",https://bugcrowd.com/viator,Viator - Travel with an Insider, Partial safe harbor,,"
+158
+","
+2 days
+","
+$250
+",,,,,,,,, 853,2041 ,"P1
+$4100 – $4500
+P2
+$2000 – $2300
+P3
+$600 – $850
+P4
+$200 – $250",,,,
+Artist Platform Wants Your Help!,"$150 - $4,500",https://bugcrowd.com/programs/teasers/patient-tree-1172,Help This Platform that Pays Artists and Creators Stay Safe!, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Cloudways,"$50 - $4,000",https://bugcrowd.com/cloudways,Managed Cloud Hosting Platform For Growing Businesses, Partial safe harbor,,"
+35
+","
+4 days
+","
+$315
+",,,,,,,,, 430,994 ,"P1
+$3000 – $4000
+P2
+$1500 – $2000
+P3
+$100 – $300
+P4
+$50 – $100","P1
+$600 – $1000
+P2
+$300 – $600
+P3
+$100 – $300
+P4
+$50 – $100",,,
+Global Financial Institution,,https://bugcrowd.com/programs/teasers/little-smoke-2110,Help to secure our Financial web applications and ensure data…, Partial safe harbor,Solo-Only,,,,,,,,,,,,,,,,,,
+Large US Insurance Provider,"$150 - $6,000",https://bugcrowd.com/programs/teasers/auGYMAudW3xRzkUm5mhBA9nh,B2B and B2C Apps in Open Scope Program,True,,,,,,,,,,,,,,,,,,,
+Unilever Vulnerability Disclosure Program,,https://bugcrowd.com/unilever-vdp,"At Unilever we meet everyday needs for nutrition, hygiene and…",True,Solo-Only,"
+253
+","
+about 19 hours
+",,,,,,,,,, 353,1088 ,,,,,
+Be the Authority!,"$100 - $1,500",https://bugcrowd.com/programs/teasers/ihjPujsLBGznTPRDeRvLvYBL,Targets for all skillsets, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+3 Easy payments,"$200 - $4,500",https://bugcrowd.com/programs/teasers/PYG4BcYhkMm668So9ZdYxvFh,"Pay in installments, get rewarded in lump sums.",True,,,,,,,,,,,,,,,,,,,
+Wise (ex-TransferWise),"$100 - $4,000",https://bugcrowd.com/wise,Wise — the global technology company building the best way to…,True,,"
+159
+","
+4 days
+","
+$234.37
+",,,,,,,,, 377,1259 ,"$6000
+P1
+$3000 – $4000
+P2
+$1000 – $1500
+P3
+$300 – $500
+P4
+$100 – $150",,,,
+An international IT and telecommunications company would like your help to secure their API and Web targets! Can you help them? ,"$150 - $5,000",https://bugcrowd.com/programs/teasers/D6ktyjtr1GH2DVT3dsLw37oL,Looking for a challenging and broad scope to test on? Skilled…, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Takeaway.com,"$100 - $2,500",https://bugcrowd.com/takeaway,"Lead, Deliver, Care - Takeaway.com",True,,"
+283
+","
+5 days
+","
+$228.26
+",,,,,,,,, 471,1958 ,"$5000
+P1
+$2000 – $2500
+P2
+$1200
+P3
+$500
+P4
+$100","$2500
+P1
+$500 – $1000
+P2
+$250 – $300
+P3
+$150","
+Business Logic Flaws
+Exfiltration of Sensitive or Personal Data
+Remote Code Execution
+SQL and Command Injection
+Authentication Bypass
+Cross-Site Request Forgery (CSRF) in sensitive functions
+","
+Multiple recurrences of the same vulnerability on different domains will be treated as the same issue.
+We are already aware of issues related to rate limiting in the authentication subsystem 
+Google Maps API keys
+Session valid after logout and password change/reset
+Cookie expiration
+Software version disclosure
+Same site scripting
+Social engineering and phishing
+Multiple recurrences of the same vulnerability on different domains
+Cross-site request forgery (CSRF) in non-sensitive functions
+Missing/misconfigured SPF/DMARC DNS-records
+Denial of service or resource exhaustion attacks (but such vulnerabilities in proprietary applications should be reported)
+Weak or misconfigured SSL/TLS parameters
+Content spoofing
+Issues related to rate limiting in the authentication subsystem
+Issues related to cross-domain policies for software such as Wordpress, Silverlight, etc. without evidence of an exploitable vulnerability
+Vulnerabilities that are limited to unsupported browsers will not be accepted (i.e. ""this exploit only works in IE6/IE7"")
+Username / email enumeration, password guessing and exposed API interfaces (like xmlrpc.php) in standard software (i.e. Wordpress)
+Vulnerabilities that require a large amount of user cooperation to perform, unlikely or unreasonable actions which would be more symptomatic of a social engineering or phishing attack and not an application vulnerability (e.g. disabling browser security features, sending the attacker critical information to complete the attack, etc.)
+",
+Application to find help around the house.,"$150 - $2,100",https://bugcrowd.com/programs/teasers/KQaKCY3q8wCF7GQyNjybbbYx,Ruby on Rails application utilizing the React framework, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+"A Cryptocurrency payment system needs your help to secure multiple web applications, APIs and mobile applications!","$200 - $12,000",https://bugcrowd.com/programs/teasers/Rp7kgWq5z8pit9UstPQbSmg9,"Talented researchers needed to test out web, APIs and mobile …",,,,,,,,,,,,,,,,,,,,
+BitDiscovery,,https://bugcrowd.com/bitdiscovery,Vulnerability Disclosure Program - Powered by Bugcrowd,True,Solo-Only,"
+18
+",,,,,,,,,,, 117,694 ,,,,,
+Click here to submit a support ticket!,,https://bugcrowd.com/programs/teasers/dzLdTDyKibS7sbLurifaVrGk,Can you find any vulnerabilities in this customer success pla…,True,,,,,,,,,,,,,,,,,,,
+SDKs and APIs Oh My!,"$200 - $4,500",https://bugcrowd.com/programs/teasers/1Z21mCvj7Fkohij4GEv4L2mv,Our encryption clients leverage their restful SaaS APIs,,Solo-Only,,,,,,,,,,,,,,,,,,
+MasterCard VDP,,https://bugcrowd.com/mastercard-vdp,MasterCard Vulnerability Disclosure Program, Partial safe harbor,Solo-Only,"
+203
+","
+2 days
+",,,,,,,,,, 209,571 ,,,,,
+Mettle,"Points - $5,000",https://bugcrowd.com/mettle,The forward-looking business account,,,"
+32
+","
+4 days
+",,,,,,,,,, 27,94 ,"P1
+$3000 – $5000
+P2
+$1500 – $2000
+P3
+$500 – $1000",,,,
+Naspers,,https://bugcrowd.com/naspers,Naspers,True,Solo-Only,"
+120
+","
+2 days
+",,,,,,,,,, 221,727 ,,,,,
+Atlassian,"$200 - $10,000",https://bugcrowd.com/atlassian,Collaboration tools for teams of all sizes,,,"
+1868
+","
+11 days
+","
+$1,130.61
+",,,,,,,,, 688,2584 ,"P1
+$10000
+P2
+$3600
+P3
+$1200
+P4
+$300","P1
+$6000
+P2
+$2400
+P3
+$800
+P4
+$300",,,
+HealthifyMe's Vulnerability Disclosure Program,,https://bugcrowd.com/healthifyme,"Weight Loss Diet, Exercise and Yoga Coach", Partial safe harbor,,"
+122
+","
+about 12 hours
+",,,,,,,,,, 278,802 ,,,,,
+Made in the USA,"$200 - $4,500",https://bugcrowd.com/programs/teasers/6dF5BFZpPHHTUJwzBY1PDJtb,Secure the bag,True,,,,,,,,,,,,,,,,,,,
+Land of the Free,"$200 - $4,500",https://bugcrowd.com/programs/teasers/iDZhypDohatBc57iUufGC1MG,US currency for US researchers,True,,,,,,,,,,,,,,,,,,,
+Leading Cybersecurity Solutions Provider,"$100 - $3,500",https://bugcrowd.com/programs/teasers/g55EBqXg4edagMyYHdWBRz3S,Help secure a security provider which touches your lives dail…, Partial safe harbor,Solo-Only,,,,,,,,,,,,,,,,,,
+SoundCloud,"$200 - $4,500",https://bugcrowd.com/soundcloud,SoundCloud is the world’s largest open audio platform. With o…,True,,"
+151
+","
+3 days
+","
+$856.66
+",,,,,,,,, 576,1362 ,"P1
+$4100 – $4500
+P2
+$1500 – $1750
+P3
+$600 – $850
+P4
+$200 – $250",,,,
+Mastercard (VDP Extension),,https://bugcrowd.com/mastercard-vdp-ext,Mastercard's Extended Vulnerability Disclosure Program, Partial safe harbor,Solo-Only,"
+7
+",,,,,,,,,,, 34,61 ,,,,,
+Financial Services Provider,"$100 - $3,500",https://bugcrowd.com/programs/teasers/2QPzmcExC5eNu2VF1K3BpWEw,Uplevel your web and API skills ,True,,,,,,,,,,,,,,,,,,,
+"No hardware, no problem! Route your submissions here!","$150 - $2,500",https://bugcrowd.com/programs/teasers/85QHLUn4xVHNMXnm5RnTXi5i,Help secure a router's operating system.,True,,,,,,,,,,,,,,,,,,,
+Help Secure an Anti-Crime FinTech Application,"$125 - $2,000",https://bugcrowd.com/programs/teasers/8KNfwfm3QXy4HeKXYvL6fRRq,Web and API Target,,,,,,,,,,,,,,,,,,,,
+Opsgenie,"$200 - $4,000",https://bugcrowd.com/opsgenie,Opsgenie is a modern incident management platform for operati…,True,,"
+124
+","
+4 days
+","
+$412.50
+",,,,,,,,, 250,648 ,,"P1
+$4000
+P2
+$1200
+P3
+$500
+P4
+$200",,,
+Telefónica Germany,,https://bugcrowd.com/telefonicavdp,As Germany's biggest mobile provider it is our obligation to …, Partial safe harbor,,"
+415
+","
+3 days
+",,,,,,,,,, 401,1038 ,,,,,
+A multinational telecommunications is looking for top talent to secure their huge attack surface!,"Points - $2,000",https://bugcrowd.com/programs/teasers/xgNf1nzd9GUNzAkA37uPpsoe,A multinational telecommunications needs your help to secure …, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Help secure the connection between teachers and students and build better classrooms,"Points - $2,100",https://bugcrowd.com/programs/teasers/nJvfrwkiaktFrMkKdSEexXtz,"Android, iOS , Web testing and APIs",True,,,,,,,,,,,,,,,,,,,
+End to End Payment Solution,"$100 - $3,500",https://bugcrowd.com/programs/teasers/NN5Yd45gNJZdnVaEDPuqkmKH,Wide Scope Web and Mobile Targets,True,,,,,,,,,,,,,,,,,,,
+Help make the cloud landscape more secure ,"$200 - $6,500",https://bugcrowd.com/programs/teasers/ZgTj3xvrZb2Mj7T796MJqMmz,A continuous assurance tool that provides an overview of your…,True,,,,,,,,,,,,,,,,,,,
+Customer Experience and Resource Planning Applications,"$300 - $5,000",https://bugcrowd.com/programs/teasers/igumKmiWyvnL3qBXJeaFevFF,Help secure our CXM and ERP platforms, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+The leader in transport fuels.,"$150 - $2,500",https://bugcrowd.com/programs/teasers/pinkJ5MeAb2fpEH1QkQA9uuS,"Android and IoS applications, with multiple APIs.",True,,,,,,,,,,,,,,,,,,,
+Trello,"$300 - $10,000",https://bugcrowd.com/trello,"Trello keeps track of everything, from the big picture to the…",,,"
+262
+","
+6 days
+","
+$539.36
+",,,,,,,,, 238,954 ,,"P1
+$10000
+P2
+$3600
+P3
+$1200
+P4
+$300",,,
+Overstock's Vulnerability Disclosure Page!,,https://bugcrowd.com/overstockvdp,It's all about the O®, Partial safe harbor,,"
+88
+","
+3 days
+",,,,,,,,,, 229,859 ,,,,,
+Arlo Kudos Rewards,,https://bugcrowd.com/arlokudos,Arlo Kudos Rewards Program, Partial safe harbor,,"
+117
+",,,,,,,,,,, 74,190 ,,,,,
+Under Armour AppSec,"$125 - $2,500",https://bugcrowd.com/underarmour,Under Armour’s vision is to inspire you with performance solu…, Partial safe harbor,,"
+424
+","
+2 days
+","
+$2,500
+",,,,,,,,, 1135,1762 ,,"P1
+$1200 – $2500
+P2
+$1000 – $1200
+P3
+$400 – $600
+P4
+$125",,,
+Fleet Management Application ,"$300 - $6,500",https://bugcrowd.com/programs/teasers/XR31EGGTQjkxREVqi4RNwPXv,Web based fleet management application,True,,,,,,,,,,,,,,,,,,,
+Moneytree KK,"$300 - $5,000",https://bugcrowd.com/moneytreekkog,Your Lifetime Financial Record, Partial safe harbor,,"
+32
+","
+3 days
+",,,,,,,,,, 344,895 ,"P1
+$4000 – $5000
+P2
+$2000 – $3000
+P3
+$750 – $1000
+P4
+$300 – $500",,,,
+Square Open Source,"$100 - $10,000",https://bugcrowd.com/squareopensource,https://square.github.io,,,"
+20
+","
+$300
+",,,,,,,,,, 16,105 ,"P1
+$1000 – $10000
+P2
+$750
+P3
+$500
+P4
+$100",,,,
+A consumer device maker is looking for help securing its hardware/software assets,"$150 - $4,000",https://bugcrowd.com/programs/teasers/rp9tjj4WKMn1yTz5VRv46ssZ,A consumer device maker is looking for help securing its hard…,,,,,,,,,,,,,,,,,,,,
+Etsy,"$100 - $10,000",https://bugcrowd.com/etsy,Shop for anything from creative people everywhere, Partial safe harbor,,"
+166
+","
+3 days
+","
+$720
+",,,,,,,,, 370,1542 ,"P1
+$5000 – $10000
+P2
+$1000 – $5000
+P3
+$300 – $800
+P4
+$100 – $200",,,,
+Cisco Meraki,"$100 - $10,000",https://bugcrowd.com/ciscomeraki,"Cisco Meraki is the leader in cloud controlled WiFi, routing,…",,,"
+275
+","
+3 days
+","
+$540
+",,,,,,,,, 194,1071 ,"P1
+$1500 – $10000
+P2
+$1000 – $6000
+P3
+$500 – $2500
+P4
+$100 – $500",,,,
+Bitdefender Box v2,"$200 - $5,000",https://bugcrowd.com/bitdefenderbox2,"Internet security solution that incorporates hardware, cloud …",True,,"
+7
+","
+3 days
+",,,,,,,,,,View the hall,34 ,,"P1
+$2500 – $5000
+P2
+$1000 – $2500
+P3
+$500 – $1000
+P4
+$200 – $500",,,
+Square,"Points - $15,000",https://bugcrowd.com/square,We make selling simple for businesses of all sizes.,,,"
+302
+","
+5 days
+","
+$775
+",,,,,,,,, 260,702 ,"P1
+$5000 – $15000
+P2
+$2500 – $5000
+P3
+$500",,,,
+FinTech provider ,"$150 - $3,500",https://bugcrowd.com/programs/teasers/muoeF4Rpqf48kDvaANUyG3QQ,A FinTech payment technology company is looking to have their…, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+SAP Concur,,https://bugcrowd.com/concur,SAP Concur is the world’s leading provider of integrated trav…, Partial safe harbor,,"
+97
+","
+1 day
+",,,,,,,,,, 287,643 ,,,,,
+Sports and Gaming with Large Attack Surface,"$100 - $2,250",https://bugcrowd.com/programs/teasers/xyo5VQceR2kZ3ciNALTQeUKM,"Web Apps, Multiple iOS and Android Apps Need Testing",,,,,,,,,,,,,,,,,,,,
+NETGEAR Kudos Rewards,,https://bugcrowd.com/netgearkudos,NETGEAR Kudos Rewards Program, Partial safe harbor,,"
+1203
+",,,,,,,,,,, 435,596 ,,,,,
+NETGEAR Cash Rewards,"$150 - $1,200",https://bugcrowd.com/netgear,NETGEAR Cash Rewards Program,,,"
+1243
+","
+about 1 month
+","
+$1,121.62
+",,,,,,,,, 514,1202 ,"$15000
+P1
+$1200
+P2
+$600
+P3
+$300
+P4
+$150",,,,
+Retail Company ,,https://bugcrowd.com/programs/teasers/mb7DbrFxEqxoFro9MPJiqpA3,Secure Web and Mobile Targets , Partial safe harbor,Solo-Only,,,,,,,,,,,,,,,,,,
+Payment platform looking for bug hunters!,"$50 - $10,000",https://bugcrowd.com/programs/teasers/ZFU5tCmZVAJJc3W3y66eWdfb,"Make up to $5,000 securing a payments platform.", Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Cloud Services Company Wants Your Help!,"$200 - $4,500",https://bugcrowd.com/programs/teasers/frosty-wildflower-7695,Work with a company that has partnered with the crowd for ove…, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+InVision ,"$25 - $2,500",https://bugcrowd.com/invision,"The world's leading prototyping, collaboration & workflow pla…", Partial safe harbor,,"
+186
+","
+2 days
+","
+$50
+",,,,,,,,, 353,1170 ,"$5000
+P1
+$1500 – $2500
+P2
+$1000 – $1250
+P3
+$300 – $600
+P4
+$50 – $100","P1
+$350 – $500
+P2
+$150 – $300
+P3
+$75 – $100
+P4
+$25 – $50",,,
+LastPass,"Points - $5,000",https://bugcrowd.com/lastpass,LastPass is a password manager and form filler which locally …, Partial safe harbor,,"
+329
+","
+3 days
+","
+$262.50
+",,,,,,,,, 381,1516 ,,"P1
+$2200 – $5000
+P2
+$600 – $2000
+P3
+$150 – $500
+P4
+$0 – $100",,,
+OWASP Java Encoder,,https://bugcrowd.com/owaspjavaencoder,This project will help Java web developers defend against Cro…, Partial safe harbor,,"
+0
+",,,,,,,,,,,View the hall,14 ,,,,,
+Help secure a shocking new eCommerce platform,"$50 - $1,000",https://bugcrowd.com/programs/teasers/BRTLEC2brLWovrqfpFoF7V3R,Help secure a shocking new eCommerce platform, Partial safe harbor,,,,,,,,,,,,,,,,,,,
+Mastercard,"$100 - $3,000",https://bugcrowd.com/mastercard,Mastercard operates the world’s fastest payments processing n…, Partial safe harbor,,"
+432
+","
+5 days
+","
+$353.84
+",,,,,,,,, 896,1713 ,"P1
+$1000 – $3000
+P2
+$300 – $900
+P3
+$100 – $300
+P4
+$100",,,,
+OWASP CSRFGuard,,https://bugcrowd.com/owaspcrsfguard,Open Web Application Security Project, Partial safe harbor,,"
+0
+",,,,,,,,,,,,3 ,,,,,
+OWASP Java HTML Sanitizer,,https://bugcrowd.com/owaspjavasanitizer,OWASP Java HTML Sanitizer Project, Partial safe harbor,,"
+3
+",,,,,,,,,,,View the hall,15 ,,,,,
+OWASP® ZAP,"Points - $1,000",https://bugcrowd.com/owaspzap,OWASP Zed Attack Proxy - one of the world’s most popular free…,True,,"
+29
+","
+4 days
+",,,,,,,,,, 19,57 ,"P1
+$0 – $1000",,,,
+Leading Survey Solutions Provider,"Points - $5,000",https://bugcrowd.com/programs/teasers/T9qKHtyt6cD6KeJnraR9bvvt,"Wide Scope Web, API and mobile targets", Partial safe harbor,,,,,,,,,,,,,,,,,,,
+SecureDrop,"$100 - $2,500",https://bugcrowd.com/freedomofpress,The open-source whistleblower submission system managed by Fr…, Partial safe harbor,,"
+2
+",,,,,,,,,,,View the hall,53 ,"P1
+$2000 – $2500
+P2
+$1000 – $1500
+P3
+$500 – $750
+P4
+$100 – $200",,,,
