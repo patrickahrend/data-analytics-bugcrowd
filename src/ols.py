@@ -2,6 +2,8 @@ from matplotlib import pyplot as plt
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import seaborn as sns
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.model_selection import train_test_split
 
 
 def cleansing_Number_People(df: pd.DataFrame):
@@ -99,8 +101,9 @@ def clean_average_payout(df: pd.DataFrame):
 def ols(df: pd.DataFrame):
     # Create a linear regression object
     model = LinearRegression()
-    X = df.loc[:, ['Number_people', 'Hall_of_famers', 'Average_payout']]
-    y = df['Vulnearbilities_rewarded']
+    X = df.loc[:, ['Number People', 'Hall of Famers',
+                   'Average Payout', 'Validation Within']]
+    y = df['Vulnearbilities Rewarded']
 
     # model formula looks as followed:
     # prediction = intercept + coefficient_1 * Number_people + coefficient_2 * Hall_of_famers + coefficient_3 * Average_payout
@@ -116,27 +119,50 @@ def ols(df: pd.DataFrame):
     return model, X, y
 
 
+def metrics(X, y, model):
+    # Split the data into a training set and a test set
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+    # Fit the model on the training set
+    model.fit(X_train, y_train)
+
+    # Make predictions on the test set
+    y_pred = model.predict(X_test)
+
+    # Calculate evaluation metrics
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+
+    print("Mean Squared Error:", mse)
+    print("Mean Absolute Error:", mae)
+    print("R^2 Score:", r2)
+
+
 def visualize(model, df: pd.DataFrame, X):
     predicated_vulnearbilities_rewarded = model.predict(X)
-    sns.scatterplot(x='Vulnearbilities_rewarded',
-                    y=predicated_vulnearbilities_rewarded, data=df)
-    plt.xlabel('Vulnearbilities_rewarded')
-    plt.ylabel('Predicted Vulnearbilities_rewarded')
+    sns.regplot(x='Vulnearbilities Rewarded',
+                y=predicated_vulnearbilities_rewarded, data=df)
+    plt.xlabel('Vulnearbilities Rewarded')
+    plt.ylabel('Predicted Vulnearbilities rewarded')
     plt.show()
 
 
 def main():
     df = pd.read_excel(
-        '/Users/patrickahrend/Developer/data-analytics-bugcrowd/data-octa/Bugcrowd_industry-asc_24.12.xlsx')
-    df = df.dropna(subset=['Number_people', 'Hall_of_famers',
-                           'Vulnearbilities_rewarded', 'Validation_within', 'Average_payout'])
-    df = cleansing_Number_People(df)
-    df = clean_Hall_of_Fame(df)
-    df = cleasne_vulnearbilities_rewarded(df)
-    df = clean_average_payout(df)
+        '/Users/patrickahrend/Developer/data-analytics-bugcrowd/data-octa/bugcrowd_modified_24.12.xlsx')
+    print(df.columns)
+    df = df.dropna(subset=['Hall of Famers', 'Number People',
+                           'Validation Within', 'Average Payout', 'Vulnearbilities Rewarded'])
+    # df = cleansing_Number_People(df)
+    # df = clean_Hall_of_Fame(df)
+    # df = cleasne_vulnearbilities_rewarded(df)
+    # df = clean_average_payout(df)
     # dependent variable is vulnearbilities_rewarded
     # independent variable is average_payout, number_people, hall_of_famers,
     results, X, y = ols(df)
+    metrics(X, y, results)
+
     visualize(results, df, X)
 
     # output: vulnearbilities_rewarded = 0.8564153381222468 + 0.246376072 * average_payout - 0.0000141271570 * number_people + 0.0000179166772 * hall_of_famers
