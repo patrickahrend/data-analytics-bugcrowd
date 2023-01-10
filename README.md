@@ -1,4 +1,4 @@
-# data-analytics-bugcrowd
+# Seminar Data Analy
 
 
 
@@ -7,11 +7,12 @@
 
 
 ### 1.Data Collection
-We used Octoparse to crawl the programs(https://bugcrowd.com/programs)  information of BugCrowd. In the first loop it crawls the top layer information, then clinks on the link and crawls the program specific information like vunerbility rewarded or average payout and then paginates through all programs to do this for all programs. The data is stored in a csv and excel file.
-To do thi in octoparse, a workflow can be created that looks as followed.
+We used Octoparse to crawl the [programs](https://bugcrowd.com/programs)  information of BugCrowd. In the first loop it crawls the top layer information, then clinks on the link and crawls the program specific information like vunerbility rewarded or average payout and then paginates through all programs to do this for all programs. The data is stored in a csv and excel file.
+To do thi in octoparse, a workflow can be created that looks as followed:
+<img width="270" alt="image" src="https://user-images.githubusercontent.com/57754014/211603607-6c720a9b-8130-459a-8ccc-93af18b7b305.png">
 
 
-We also crawled all the data from each tab of the discovery page (https://bugcrowd.com/programs/discovery/featured) to get categories like industries, technologies,staff pick or highest reward range.
+We also crawled all the data from each tab of the [discovery page](https://bugcrowd.com/programs/discovery/featured) to get categories like industries, technologies,staff pick or highest reward range.
 
 ### 2.Data Cleaning
 In the first step for each column placeholder dummy values were inserted to still keep the information of the columnm, that will be dropped. Then column dtypes were changed and columns were standarized like validation within was calculated to all hours for instance. Further we encoded the column is_safe_habour to 0 = not safe habour, 1 = partialy safe habour and 2= safe habor. Then the data was merged from the categorie and the columns were dropped that were not needed. The data was then exported to a csv file.
