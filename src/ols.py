@@ -4,6 +4,8 @@ from sklearn.linear_model import LinearRegression
 import seaborn as sns
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
+import numpy as np
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 
 def cleansing_Number_People(df: pd.DataFrame):
@@ -103,18 +105,28 @@ def ols(df: pd.DataFrame):
     model = LinearRegression()
     X = df.loc[:, ['Number People', 'Hall of Famers',
                    'Average Payout', 'Validation Within']]
+
     y = df['Vulnearbilities Rewarded']
 
     # model formula looks as followed:
-    # prediction = intercept + coefficient_1 * Number_people + coefficient_2 * Hall_of_famers + coefficient_3 * Average_payout
+    # prediction = intercept + coefficient_1 * Number_people + coefficient_2 * Hall_of_famers + coefficient_3 * Average_payout + coefficent_4 * Validation Within
+
+    # scaling
+    scaler = StandardScaler()
+
+    # Fit the scaler to the data
+    scaler.fit(X)
+
+    # Transform the data using the scaler
+    X = scaler.transform(X)
 
     # Fit the linear regression
     model.fit(X, y)
 
     # Print the coefficients
-    print(model.intercept_)
-    print(model.coef_)
-    print(model.score(X, y))
+    print("Interception", model.intercept_)
+    print("Coefficents", model.coef_)
+    print("Model score", model.score(X, y))
 
     return model, X, y
 
@@ -152,14 +164,21 @@ def main():
     df = pd.read_excel(
         '/Users/patrickahrend/Developer/data-analytics-bugcrowd/data-octa/bugcrowd_modified_24.12.xlsx')
     print(df.columns)
+
+    # replacing placeholders with np values againa
+    df["Average Payout"] = df["Average Payout"].replace(0, np.nan)
+    df["Number People"] = df["Number People"].replace(0, np.nan)
+    df["Hall of Famers"] = df["Hall of Famers"].replace(0, np.nan)
+
     df = df.dropna(subset=['Hall of Famers', 'Number People',
                            'Validation Within', 'Average Payout', 'Vulnearbilities Rewarded'])
-    # df = cleansing_Number_People(df)
-    # df = clean_Hall_of_Fame(df)
-    # df = cleasne_vulnearbilities_rewarded(df)
-    # df = clean_average_payout(df)
+    df['Validation Within'] = df['Validation Within'].astype(int)
+    df['Vulnearbilities Rewarded'] = df["Vulnearbilities Rewarded"].astype(
+        int)
+
     # dependent variable is vulnearbilities_rewarded
     # independent variable is average_payout, number_people, hall_of_famers,
+
     results, X, y = ols(df)
     metrics(X, y, results)
 
