@@ -1,6 +1,4 @@
-# Seminar Data Analy
-
-
+# Seminar - Data Analytics for Cybercrime and Undesirable Online Behaviors
 
 
 ## Approach 
