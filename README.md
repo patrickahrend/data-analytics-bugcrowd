@@ -19,7 +19,7 @@ In the first step for each column placeholder dummy values were inserted to stil
 
 
 ### 3.Data Analysis
-With the data plots were created to get a better understand which are stored under /diagrams.
+With the data plots were created to get a better understand which are stored under [diagrams](https://github.com/patrickahrend/data-analytics-bugcrowd/tree/main/diagrams).
 Later we created a model to predict the average payout of a program. The model was created with the help of the sklearn library. The model was trained with the data from the discovery page and the data from the programs page. The model was trained with the following parameters: 
 ```python
     model = LinearRegression()
