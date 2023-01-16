@@ -95,13 +95,16 @@ def get_LassoCV_RidgeCV(X, y):
     print("This is the RidgeCV", ridge_coef)
 
 
-def get_RFE(X, y):
+def get_RFE(df):
     # Create a linear regression object
     lm = LinearRegression()
 
+    X = df[['P4 Average',  'P2 Average']]
+    y = df['Vulnearbilities Rewarded']
     # Create the RFE object and rank each pixel
-    rfe = RFE(lm, 4)
+    rfe = RFE(lm)
     rfe = rfe.fit(X, y)
+    print(rfe.ranking_)
 
     # Print the names and their ranking
     print(sorted(zip(map(lambda x: round(x, 4), rfe.ranking_), X.columns)))
@@ -109,7 +112,7 @@ def get_RFE(X, y):
 
 def get_SelectKBest(X, y):
     # Create the SelectKBest object
-    fvalue_selector = SelectKBest(f_regression, k=4)
+    fvalue_selector = SelectKBest(f_regression, k=5)
 
     # Apply the SelectKBest object to the features and target
     X_kbest = fvalue_selector.fit_transform(X, y)
@@ -131,30 +134,37 @@ def visualize(model, df: pd.DataFrame, X):
 def main():
     df = pd.read_excel(
         '/Users/patrickahrend/Developer/data-analytics-bugcrowd/used_data/final-data-16-01.xlsx')
-    print(df.columns)
-    print(df.dtypes)
-    columns = ['Average Payout', 'Hall of Famers', 'Number People', 'Maximum Reword', 'annocument_count',
-               'Reward Range Average', 'Validation Within Hours', 'P4 Average', 'P3 Average', 'P2 Average', 'P1 Average']
+    columns = ['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
+               'Is Safe Harbor_Safe harbor']
 
-    for column in columns:
-        df[column] = df[column].replace('0', np.nan)
+    df["P4 Average"] = df["P4 Average"].replace('0', np.nan)
+    df["P3 Average"] = df["P3 Average"].replace('0', np.nan)
+    df["P2 Average"] = df["P2 Average"].replace('0', np.nan)
+    df["P1 Average"] = df["P1 Average"].replace('0', np.nan)
+    # for column in columns:
+    #     df[column] = df[column].replace('0', np.nan)
 
     # dropps 0s and Nan
-    df = df.dropna(subset=columns)
+    df = df.dropna(subset=['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
+                           'Is Safe Harbor_Safe harbor'])
 
     print("Amount of rows", df.shape[0])
-
-    X = df[['Average Payout', 'Hall of Famers', 'Number People', 'Maximum Reword', 'annocument_count',
-            'Reward Range Average', 'Validation Within Hours', 'P4 Average', 'P3 Average', 'P2 Average', 'P1 Average']]
+    X = df[['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
+            'Is Safe Harbor_Safe harbor']]
     y = df['Vulnearbilities Rewarded']
+
     results, X, y = ols(X, y)
     metrics(results, X, y)
     # visualize(results, df, X)
 
+    # help functions to get more information about the different parameters
+    get_P_Value(X, y)
+    get_LassoCV_RidgeCV(X, y)
+    get_RFE(df)
+    get_SelectKBest(X, y)
+
     # # looking at the smaller programs
     # df = df.where(df['Vulnearbilities Rewarded'] <= 500)
     # output: vulnearbilities_rewarded = 0.8564153381222468 + 0.246376072 * average_payout - 0.0000141271570 * number_people + 0.0000179166772 * hall_of_famers
-
-
 if __name__ == '__main__':
     main()
