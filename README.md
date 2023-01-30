@@ -45,7 +45,8 @@ Later we created a model to predict the average payout of a program. The model w
 
 ### Heatmap 
 
-<img width="357" alt="image" src="https://user-images.githubusercontent.com/57754014/215579279-8c26999d-68b6-42fa-a3b0-03f084162219.png">
+![image](https://user-images.githubusercontent.com/57754014/215579467-732c9c7d-bae6-4d6d-8ca6-37f153c98fce.png)
+
 
 
 
