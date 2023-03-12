@@ -16,6 +16,8 @@ We also crawled all the data from each tab of the [discovery page](https://bugcr
 In the first step for each column placeholder dummy values were inserted to still keep the information of the columnm, that will be dropped. Then column dtypes were changed and columns were standarized like validation within was calculated to all hours for instance. Further we encoded the column is_safe_habour to 0 = not safe habour, 1 = partialy safe habour and 2= safe habor. Then the data was merged from the categorie and the columns were dropped that were not needed. The data was then exported to a csv file.
 
 
+The used data can be found in the [data folder](https://github.com/patrickahrend/data-analytics-bugcrowd/tree/main/used_data).
+
 ### 3.Data Analysis
 With the data plots were created to get a better understand which are stored under [diagrams](https://github.com/patrickahrend/data-analytics-bugcrowd/tree/main/diagrams).
 Later we created a model to predict the average payout of a program. The model was created with the help of the sklearn library. The model was trained with the data from the discovery page and the data from the programs page. The model was trained with the following parameters: 
