@@ -43,7 +43,7 @@ Later we created a model to predict the average payout of a program. The model w
     # Fit the linear regression
     model.fit(X, y)
 ```
-
+To valid our model we used an online statistics software called [datatab](https://datatab.net/). 
 
 ### Heatmap 
 
