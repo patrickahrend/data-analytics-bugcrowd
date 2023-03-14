@@ -72,6 +72,10 @@ We generated a heatmap to see the correlation between the columns.
 
 
 ### Code Structure 
-The code is structured as followed:
-- [data](https://github.com/patrickahrend/data-analytics-bugcrowd/tree/main/used_data)
+In the [code folder](https://github.com/patrickahrend/data-analytics-bugcrowd/tree/main/src) the following structure can be found:
+- analysis: contains the code for the data cleaning and generation of simple plots
+- obversation: contains the code for the obversation and generation of the heatmap 
+- regression: contains an example of how we used the library to conduct a linear regression 
+- ols: is an early on explanotory approach to linear regression 
+
 

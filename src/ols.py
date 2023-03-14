@@ -18,11 +18,6 @@ def ols(X, y):
     X = X
     y = y
 
-    # model formula looks as followed:
-    # Vulnearbilities Rewarded = -0.98 +0.01 · Average Payout +0.44 · Hall of Famers +0.06 · Number People +6.88 · annocument_count +0 · Reward Range Average +0.07 · Validation Within Hours +0.01 · P1 Average -0.03 · P2 Average +0.07 · P3 Average -0.22 · P4 Average
-
-
-
     # Fit the linear regression
     model.fit(X, y)
 
