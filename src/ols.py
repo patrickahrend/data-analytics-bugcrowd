@@ -5,7 +5,7 @@ import seaborn as sns
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 import numpy as np
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
 from sklearn.linear_model import LassoCV, RidgeCV
 from sklearn.feature_selection import f_regression
 from sklearn.feature_selection import RFE
@@ -19,16 +19,9 @@ def ols(X, y):
     y = y
 
     # model formula looks as followed:
-    # prediction = intercept + coefficient_1 * Number_people + coefficient_2 * Hall_of_famers + coefficient_3 * Average_payout + coefficent_4 * Validation Within
+    # Vulnearbilities Rewarded = -0.98 +0.01 · Average Payout +0.44 · Hall of Famers +0.06 · Number People +6.88 · annocument_count +0 · Reward Range Average +0.07 · Validation Within Hours +0.01 · P1 Average -0.03 · P2 Average +0.07 · P3 Average -0.22 · P4 Average
 
-    # scaling
-    scaler = StandardScaler()
 
-    # Fit the scaler to the data
-    scaler.fit(X)
-
-    # Transform the data using the scaler
-    X = scaler.transform(X)
 
     # Fit the linear regression
     model.fit(X, y)
@@ -45,13 +38,6 @@ def metrics(model, X, y):
     # Split the data into a training set and a test set
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-    # scaling to not get overfitting
-    scaler = StandardScaler()
-    scaler.fit(X_train)
-    X_train = scaler.transform(X_train)
-
-    scaler.fit(X_test)
-    X_test = scaler.transform(X_test)
 
     # Fit the model on the training set
     model.fit(X_train, y_train)
@@ -67,6 +53,10 @@ def metrics(model, X, y):
     print("Mean Squared Error:", mse)
     print("Mean Absolute Error:", mae)
     print("R^2 Score:", r2)
+    n, p = X.shape
+    adjusted_r2 = 1 - (1 - r2) * (n - 1) / (n - p - 1)
+    print("Adjusted R^2:", adjusted_r2)
+
 
 
 def get_P_Value(X, y):
@@ -133,24 +123,12 @@ def visualize(model, df: pd.DataFrame, X):
 
 def main():
     df = pd.read_excel(
-        '/Users/patrickahrend/Developer/data-analytics-bugcrowd/used_data/final-data-16-01.xlsx')
-    columns = ['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
-               'Is Safe Harbor_Safe harbor']
+        '../used_data/cleaned-dataset-log.xlsx')
 
-    df["P4 Average"] = df["P4 Average"].replace('0', np.nan)
-    df["P3 Average"] = df["P3 Average"].replace('0', np.nan)
-    df["P2 Average"] = df["P2 Average"].replace('0', np.nan)
-    df["P1 Average"] = df["P1 Average"].replace('0', np.nan)
-    # for column in columns:
-    #     df[column] = df[column].replace('0', np.nan)
-
-    # dropps 0s and Nan
-    df = df.dropna(subset=['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
-                           'Is Safe Harbor_Safe harbor'])
-
-    print("Amount of rows", df.shape[0])
-    X = df[['Is Safe Harbor_Not Safe Harbor', 'Is Safe Harbor_Partial safe harbor',
-            'Is Safe Harbor_Safe harbor']]
+    X = df[[  'Average Payout',
+       'Hall of Famers', 'Number People', 'annocument_count',
+        'Reward Range Average', 'Validation Within Hours',
+       'P1 Average', 'P2 Average', 'P3 Average', 'P4 Average']]
     y = df['Vulnearbilities Rewarded']
 
     results, X, y = ols(X, y)
@@ -164,7 +142,6 @@ def main():
     get_SelectKBest(X, y)
 
     # # looking at the smaller programs
-    # df = df.where(df['Vulnearbilities Rewarded'] <= 500)
     # output: vulnearbilities_rewarded = 0.8564153381222468 + 0.246376072 * average_payout - 0.0000141271570 * number_people + 0.0000179166772 * hall_of_famers
 if __name__ == '__main__':
     main()
